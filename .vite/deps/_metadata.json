@@ -1,40 +1,55 @@
 {
-  "hash": "0e184c57",
+  "hash": "2d182bce",
   "configHash": "41fc96bb",
-  "lockfileHash": "df03853d",
-  "browserHash": "11c33fd9",
+  "lockfileHash": "d1fbf63a",
+  "browserHash": "973d8216",
   "optimized": {
     "react/jsx-dev-runtime": {
       "src": "../../node_modules/react/jsx-dev-runtime.js",
       "file": "react_jsx-dev-runtime.js",
-      "fileHash": "9f540d5a",
+      "fileHash": "58263065",
       "needsInterop": true
     },
     "react": {
       "src": "../../node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "72463c39",
+      "fileHash": "1944ca8a",
       "needsInterop": true
     },
     "react-dom/client": {
       "src": "../../node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "db2d092f",
+      "fileHash": "a185c869",
       "needsInterop": true
     },
     "react-router-dom": {
       "src": "../../node_modules/react-router-dom/dist/index.mjs",
       "file": "react-router-dom.js",
-      "fileHash": "66b35f56",
+      "fileHash": "73b99b25",
+      "needsInterop": false
+    },
+    "motion/react": {
+      "src": "../../node_modules/motion/dist/es/react.mjs",
+      "file": "motion_react.js",
+      "fileHash": "f7d09848",
+      "needsInterop": false
+    },
+    "lenis": {
+      "src": "../../node_modules/lenis/dist/lenis.mjs",
+      "file": "lenis.js",
+      "fileHash": "75db1bfe",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-OAORDXIJ": {
-      "file": "chunk-OAORDXIJ.js"
+    "chunk-R3E4LXVO": {
+      "file": "chunk-R3E4LXVO.js"
     },
-    "chunk-R4VOGKSS": {
-      "file": "chunk-R4VOGKSS.js"
+    "chunk-P6RTVJOB": {
+      "file": "chunk-P6RTVJOB.js"
+    },
+    "chunk-G3PMV62Z": {
+      "file": "chunk-G3PMV62Z.js"
     }
   }
 }

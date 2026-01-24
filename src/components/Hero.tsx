@@ -55,6 +55,15 @@ export default function Hero() {
             />
           </motion.div>
 
+          <div className="absolute top-6 left-6 z-20 md:top-12 md:left-12">
+            <a
+              href="/unifest"
+              className="inline-block px-6 py-4 bg-[#E56399] text-white font-bold text-xl uppercase tracking-widest border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-150 hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
+            >
+              Register Now
+            </a>
+          </div>
+
           <div className="absolute top-6 right-6 z-20 md:top-48 md:right-30">
             <img
               src={logo}

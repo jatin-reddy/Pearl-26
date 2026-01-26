@@ -26,9 +26,9 @@ export default function Hero() {
     offset: ["start start", "end start"],
   });
 
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "-15%"]);
   const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.4]);
-  const fgScale = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
+  const fgScale = useTransform(scrollYProgress, [0, 1], [1, 1.4]);
   const fgY = useTransform(scrollYProgress, [0, 1], ["0%", "0%"]); // later when we get a bigger asset (we can move it up on scroll)
 
   return (
@@ -58,7 +58,7 @@ export default function Hero() {
               />
             </motion.div>
 
-            <div className="absolute top-6 left-6 z-20 md:top-12 md:left-12">
+            <div className="absolute top-12 left-6 z-20 md:top-12 md:left-12">
               <a
                 href="/unifest"
                 className="inline-block px-4 py-2 text-sm md:px-6 md:py-4 md:text-xl bg-[#E56399] text-white font-bold uppercase tracking-widest border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-150 hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
@@ -71,11 +71,11 @@ export default function Hero() {
               <img
                 src={logo}
                 alt="Pearl Logo"
-                className="h-[16vh] md:w-78 md:h-auto drop-shadow-3xl"
+                className="h-[18vh] md:w-78 md:h-auto drop-shadow-3xl"
               />
             </div>
 
-            <div className="absolute bottom-8 right-12 z-20 hidden md:block">
+            <div className="absolute right-10 bottom-10 z-20 scale-100 origin-bottom-right md:scale-100 md:bottom-8 md:right-12">
               <Countdown />
             </div>
           </div>

@@ -6,6 +6,7 @@ import background from "../assets/herosection/background2.jpeg";
 import rooftop from "../assets/herosection/heros-silouette.png";
 import logo from "/PearlLogowDate.svg";
 import MovingTape from "./Tape";
+import Countdown from "./Countdown";
 
 export default function Hero() {
   const containerRef = useRef(null);
@@ -25,7 +26,7 @@ export default function Hero() {
     offset: ["start start", "end start"],
   });
 
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
   const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.4]);
   const fgScale = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
   const fgY = useTransform(scrollYProgress, [0, 1], ["0%", "0%"]); // later when we get a bigger asset (we can move it up on scroll)
@@ -66,12 +67,16 @@ export default function Hero() {
               </a>
             </div>
 
-            <div className="absolute top-30 right-10 z-20 md:top-48 md:right-30 md:left-auto md:translate-x-0">
+            <div className="absolute top-30 right-10 z-20 md:top-40 md:right-24 md:left-auto md:translate-x-0">
               <img
                 src={logo}
                 alt="Pearl Logo"
-                className="h-[16vh] md:w-72 md:h-auto drop-shadow-3xl"
+                className="h-[16vh] md:w-78 md:h-auto drop-shadow-3xl"
               />
+            </div>
+
+            <div className="absolute bottom-8 right-12 z-20 hidden md:block">
+              <Countdown />
             </div>
           </div>
           <div className="absolute top-[100vh] left-0 right-0 bottom-0 z-30 bg-linear-to-b from-[#261A3E] to-[#080312]">

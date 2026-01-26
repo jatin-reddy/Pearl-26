@@ -61,36 +61,37 @@ interface Event {
 
 const EventCard = ({ event, isMain = false }: { event: Event, isMain?: boolean }) => {
   return (
-    <div className={`relative w-full h-full flex items-center justify-center transition-all duration-500`}>
+    <div className={`relative w-full h-full flex flex-col md:block items-center justify-center transition-all duration-500 bg-transparent md:bg-none`}>
 
       {/* Main Background Area (Card) */}
-      <div className={`absolute inset-0 z-0 ${event.baseColor} flex items-center justify-center shadow-lg`}>
+      <div className={`relative h-[60%] md:h-auto md:flex-1 w-full md:absolute md:inset-0 z-0 ${event.baseColor} flex items-center justify-center shadow-lg`}>
         <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent" />
+
+        {/* Outlined Number - Centered in Top Half for Mobile */}
+        <div className={`absolute z-40 font-black italic tracking-tighter leading-none transition-all duration-500 select-none pointer-events-none flex items-center justify-center
+             text-[8rem] md:text-[12rem] inset-0 top-1/2 -translate-y-1/2 md:translate-y-0 md:top-0`}
+          style={{
+            WebkitTextStroke: `2px ${event.stroke}`,
+            color: 'transparent',
+          }}
+        >
+          <span className="translate-y-0 md:translate-y-8">
+            {event.number}
+          </span>
+        </div>
       </div>
 
-      {/* Outlined Number - z-40 to sit ABOVE the box */}
-      <div className={`absolute z-40 font-black italic tracking-tighter leading-none transition-all duration-500 select-none pointer-events-none flex items-center justify-center
-             text-[12rem] inset-0`}
-        style={{
-          WebkitTextStroke: `2px ${event.stroke}`,
-          color: 'transparent',
-        }}
-      >
-        <span className="translate-y-8">
-          {event.number}
-        </span>
-      </div>
 
-      {/* Overlay Text Box (Bottom Right) - Visible on ALL cards*/}
+      {/* Overlay Text Box */}
       <div
-        className={`absolute z-30 ${event.boxColor} text-black shadow-2xl flex flex-col justify-center
-            w-[600px] h-[360px] -bottom-20 -right-20 p-10 pr-16`}
+        className={`relative w-full h-[60%] md:h-auto flex flex-col justify-center z-30 ${event.boxColor} text-black shadow-2xl p-6 md:p-10 md:pr-16
+            md:absolute md:w-[600px] md:h-[360px] md:-bottom-20 md:-right-20`}
       >
-        <h3 className="font-black uppercase leading-none mb-4 text-4xl">
+        <h3 className="font-black uppercase leading-none mb-2 md:mb-4 text-3xl md:text-4xl text-left">
           {event.title}
         </h3>
-        <div className={`transition-opacity duration-300 opacity-100 delay-100`}>
-          <p className={`font-bold leading-relaxed block ${isMain ? 'text-base' : 'text-sm line-clamp-4'}`}>
+        <div className={`transition-opacity duration-300 opacity-100 delay-100 text-left`}>
+          <p className={`font-bold leading-relaxed block ${isMain ? 'text-base md:text-base' : 'text-sm md:text-sm line-clamp-4'}`}>
             {event.description}
           </p>
         </div>
@@ -171,7 +172,7 @@ const HeadlinerEvents = () => {
             else if (offset === 1) pos = 'right1';
             else if (offset === 2) pos = 'right2';
 
-            // @ts-expect-error- indexing strictly controlled by pos logic
+            // @ts-expect-error - indexing strictly controlled by pos logic
             const targetVariant = imageVariants[pos];
 
             return (
@@ -187,17 +188,30 @@ const HeadlinerEvents = () => {
                   ease: [0.25, 1, 0.5, 1],
                   scale: { duration: 0.2 } // Faster scale transition
                 }}
-                className={`absolute w-[340px] md:w-[900px] h-[550px] shadow-[0_30px_80px_rgba(0,0,0,0.8)] ${offset === 0 ? '' : 'cursor-pointer hover:brightness-110'
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.05}
+                onDragEnd={(_, { offset }) => {
+                  const swipeThreshold = 50;
+                  if (offset.x < -swipeThreshold) {
+                    nextSlide();
+                  } else if (offset.x > swipeThreshold) {
+                    prevSlide();
+                  }
+                }}
+                className={`absolute w-[80vw] md:w-[900px] h-[500px] md:h-[550px] shadow-[0_30px_80px_rgba(0,0,0,0.8)] ${offset === 0 ? 'z-20' : 'z-10 cursor-pointer hover:brightness-110'
                   }`}
                 onClick={() => {
                   if (offset === -1) prevSlide();
                   if (offset === 1) nextSlide();
                 }}
               >
-                <EventCard
-                  event={EVENTS[eventIndex]}
-                  isMain={offset === 0}
-                />
+                <div className="w-full h-full pointer-events-none md:pointer-events-auto">
+                  <EventCard
+                    event={EVENTS[eventIndex]}
+                    isMain={offset === 0}
+                  />
+                </div>
               </motion.div>
             );
           })}

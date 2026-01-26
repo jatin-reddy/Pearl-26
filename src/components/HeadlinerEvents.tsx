@@ -64,37 +64,36 @@ const EventCard = ({ event, isMain = false }: { event: Event, isMain?: boolean }
     <div className={`relative w-full h-full flex flex-col md:block items-center justify-center transition-all duration-500 bg-transparent md:bg-none`}>
 
       {/* Main Background Area (Card) */}
-      <div className={`relative h-[60%] md:h-auto md:flex-1 w-full md:absolute md:inset-0 z-0 ${event.baseColor} flex items-center justify-center shadow-lg`}>
+      <div className={`relative h-[80%] md:h-auto md:flex-1 w-full md:absolute md:inset-0 z-0 ${event.baseColor} flex items-center justify-center shadow-lg`}>
         <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent" />
-
-        {/* Outlined Number - Centered in Top Half for Mobile */}
-        <div className={`absolute z-40 font-black italic tracking-tighter leading-none transition-all duration-500 select-none pointer-events-none flex items-center justify-center
-             text-[8rem] md:text-[12rem] inset-0 top-1/2 -translate-y-1/2 md:translate-y-0 md:top-0`}
-          style={{
-            WebkitTextStroke: `2px ${event.stroke}`,
-            color: 'transparent',
-          }}
-        >
-          <span className="translate-y-0 md:translate-y-8">
-            {event.number}
-          </span>
-        </div>
       </div>
-
 
       {/* Overlay Text Box */}
       <div
-        className={`relative w-full h-[60%] md:h-auto flex flex-col justify-center z-30 ${event.boxColor} text-black shadow-2xl p-6 md:p-10 md:pr-16
-            md:absolute md:w-[600px] md:h-[360px] md:-bottom-20 md:-right-20`}
+        className={`relative w-full h-[80%] flex flex-col justify-center z-20 ${event.boxColor} text-black shadow-2xl p-6 md:p-10 md:pr-16
+            md:absolute md:w-[600px] md:h-[320px] md:-bottom-20 md:-right-20`}
       >
-        <h3 className="font-black uppercase leading-none mb-2 md:mb-4 text-3xl md:text-4xl text-left">
+        <h3 className="font-pearl uppercase leading-none mb-2 md:mb-4 text-3xl md:text-4xl text-left tracking-wide">
           {event.title}
         </h3>
         <div className={`transition-opacity duration-300 opacity-100 delay-100 text-left`}>
-          <p className={`font-bold leading-relaxed block ${isMain ? 'text-base md:text-base' : 'text-sm md:text-sm line-clamp-4'}`}>
+          <p className={`font-pearl leading-relaxed block tracking-wide ${isMain ? 'text-base md:text-base' : 'text-sm md:text-sm line-clamp-4'}`}>
             {event.description}
           </p>
         </div>
+      </div>
+
+      {/* Outlined Number - Above Everything */}
+      <div className={`absolute z-50 font-pearl font-black tracking-wide leading-none transition-all duration-500 select-none pointer-events-none flex items-center justify-center
+           text-[8rem] md:text-[12rem] inset-0 top-1/2 -translate-y-1/2 md:translate-y-0 md:top-0`}
+        style={{
+          WebkitTextStroke: `2px ${event.stroke}`,
+          color: 'transparent',
+        }}
+      >
+        <span className="-translate-y-8 md:-translate-y-8">
+          {event.number}
+        </span>
       </div>
 
     </div>
@@ -153,7 +152,7 @@ const HeadlinerEvents = () => {
 
       {/* 2. Main Header */}
       <header className="relative z-20 pt-8 px-8 md:px-16 flex justify-between items-end">
-        <h2 className="text-4xl md:text-6xl font-black italic tracking-tighter uppercase flex gap-4 drop-shadow-lg leading-none">
+        <h2 className="font-pearl text-4xl md:text-6xl font-black tracking-widest uppercase flex gap-4 drop-shadow-lg leading-none">
           <span className="text-white">HEADLINER</span>
           <span className="text-[#F0ABFC]">EVENTS</span>
         </h2>

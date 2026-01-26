@@ -1,8 +1,10 @@
 import Hero from "../components/Hero";
+import AboutPearl from "../components/AboutPearl";
 const Landing = () => {
   return (
     <>
       <Hero />
+      <AboutPearl />
     </>
   );
 };

@@ -1,6 +1,5 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
-import Lenis from "lenis";
 
 import background from "../assets/herosection/background2.jpeg";
 import rooftop from "../assets/herosection/heros-silouette.png";
@@ -8,16 +7,6 @@ import logo from "/Pearl'26_logo.svg";
 
 export default function Hero() {
   const containerRef = useRef(null);
-
-  useEffect(() => {
-    const lenis = new Lenis();
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-    return () => lenis.destroy();
-  }, []);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -61,14 +50,6 @@ export default function Hero() {
               alt="Pearl Logo"
               className="w-32 md:w-84 drop-shadow-3xl"
             />
-          </div>
-        </div>
-        <div className="absolute top-[100vh] left-0 right-0 bottom-0 z-30 bg-linear-to-b from-[#261A3E] to-[#080312]">
-          <div className="pt-20 px-10">
-            <h2 className="text-5xl font-bold text-[#FF2E93]">
-              Pearl'26 - Escape into the Comic-Verse
-            </h2>
-            <p>About us comes here</p>
           </div>
         </div>
       </div>

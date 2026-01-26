@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 
-const EVENTS = [
+const EVENTS: Event[] = [
   {
     id: 1,
     number: '01',
@@ -31,8 +31,8 @@ const EVENTS = [
   },
   {
     id: 4,
-    number: 'The next event',
-    title: 'RUNE jkfdls',
+    number: '04',
+    title: 'The next event',
     description: 'Mascots for the club or any image but it should be of same style for all the clubs',
     baseColor: 'bg-[#E5E5E5]', // Light Grey
     stroke: '#22D3EE', // Cyan
@@ -49,7 +49,17 @@ const EVENTS = [
   },
 ];
 
-const EventCard = ({ event, isMain = false }: { event: any, isMain?: boolean }) => {
+interface Event {
+  id: number;
+  number: string;
+  title: string;
+  description: string;
+  baseColor: string;
+  stroke: string;
+  boxColor: string;
+}
+
+const EventCard = ({ event, isMain = false }: { event: Event, isMain?: boolean }) => {
   return (
     <div className={`relative w-full h-full flex items-center justify-center transition-all duration-500`}>
 
@@ -102,7 +112,7 @@ const HeadlinerEvents = () => {
   const [positionIndex, setPositionIndex] = useState(0);
   const [isShrinking, setIsShrinking] = useState(false);
 
-  const handleSlideChange = (direction: 'next' | 'prev') => {
+  const handleSlideChange = useCallback((direction: 'next' | 'prev') => {
     if (isShrinking) return; // Prevent spamming
 
     setIsShrinking(true);
@@ -117,10 +127,10 @@ const HeadlinerEvents = () => {
         setIsShrinking(false);
       }, 500); // Wait for move animation (0.5s)
     }, 200); // Shrink duration
-  };
+  }, [isShrinking]);
 
-  const nextSlide = () => handleSlideChange('next');
-  const prevSlide = () => handleSlideChange('prev');
+  const nextSlide = useCallback(() => handleSlideChange('next'), [handleSlideChange]);
+  const prevSlide = useCallback(() => handleSlideChange('prev'), [handleSlideChange]);
 
   // Keyboard Support
   useEffect(() => {
@@ -130,7 +140,7 @@ const HeadlinerEvents = () => {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isShrinking]); // Added dependency to prevent stale closer? Actually state updates are functional, but `isShrinking` check needs latest value.
+  }, [nextSlide, prevSlide]);
 
   const getEventIndex = (idx: number) => {
     // Handling negative modulo properly
@@ -161,7 +171,7 @@ const HeadlinerEvents = () => {
             else if (offset === 1) pos = 'right1';
             else if (offset === 2) pos = 'right2';
 
-            // @ts-ignore - indexing strictly controlled by pos logic
+            // @ts-expect-error- indexing strictly controlled by pos logic
             const targetVariant = imageVariants[pos];
 
             return (

@@ -1,32 +1,17 @@
 import { Outlet } from "react-router-dom";
-import { useEffect } from "react";
-import Lenis from "lenis";
+import { ReactLenis } from "lenis/react";
 import NavMenu from "./components/Nav";
 // import Footer from "./components/Foooter";
 
 const App = () => {
-  useEffect(() => {
-  const lenis = new Lenis({
-    lerp: 0.08,
-  });
-
-  function raf(time: number) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
-
-  requestAnimationFrame(raf);
-  return () => lenis.destroy();
-}, []);
-
   return (
-    <>
+    <ReactLenis root options={{ lerp: 0.08 }}>
       <NavMenu />
       <main>
         <Outlet />
       </main>
       {/* <Footer /> */}
-    </>
+    </ReactLenis>
   );
 };
 

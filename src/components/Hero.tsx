@@ -29,7 +29,7 @@ export default function Hero() {
     <section>
       <div
         ref={containerRef}
-        className="relative min-h-[250vh] md:h-[240vh] bg-[#0E0B14] text-white overflow-hidden"
+        className="relative min-h-[250vh] md:min-h-[240vh] bg-[#0E0B14] text-white overflow-hidden"
       >
         <div className="sticky top-0 h-screen overflow-hidden">
           <motion.div

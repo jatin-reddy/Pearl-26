@@ -11,7 +11,7 @@ const EVENTS = [
       "Frames that speak. A national short film battle where storytellers weave cinematic magic around a central theme.",
     baseColor: "bg-[#E5E5E5]",
     stroke: "#22D3EE",
-    boxColor: "bg-[#F0ABFC]",
+    boxColor: "bg-[#CE025B]",
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const EVENTS = [
       "Sync. Rhythm. Rebellion. The ultimate western group dance showdown where top crews battle for dominance.",
     baseColor: "bg-[#E5E5E5]",
     stroke: "#22D3EE",
-    boxColor: "bg-[#F0ABFC]",
+    boxColor: "bg-[#CE025B]",
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ const EVENTS = [
       "The hunt for the next comic genius. Armed with just a mic, performers battle to be the last one laughing.",
     baseColor: "bg-[#E5E5E5]",
     stroke: "#22D3EE",
-    boxColor: "bg-[#F0ABFC]",
+    boxColor: "bg-[#CE025B]",
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ const EVENTS = [
       "Amps cranked to eleven. The country's best semi-pro bands collide in a high-voltage sonic battle.",
     baseColor: "bg-[#E5E5E5]",
     stroke: "#22D3EE",
-    boxColor: "bg-[#F0ABFC]",
+    boxColor: "bg-[#CE025B]",
   },
   {
     id: 5,
@@ -51,7 +51,7 @@ const EVENTS = [
       "High fashion meets high fantasy. A runway spectacle of glamour, mystique, and ethereal elegance.",
     baseColor: "bg-[#E5E5E5]",
     stroke: "#22D3EE",
-    boxColor: "bg-[#F0ABFC]",
+    boxColor: "bg-[#CE025B]",
   },
   {
     id: 6,
@@ -61,7 +61,7 @@ const EVENTS = [
       "The street is the stage. Raw energy and bold scripts echo through the crowd in this battle of voices.",
     baseColor: "bg-[#E5E5E5]",
     stroke: "#22D3EE",
-    boxColor: "bg-[#F0ABFC]",
+    boxColor: "bg-[#CE025B]",
   },
 ];
 
@@ -96,7 +96,7 @@ const EventCard = ({
       {/* Overlay Text Box */}
       <div
         // CHANGE 1: Added `md:pl-14` to give that specific left breathing room
-        className={`relative w-full h-[80%] flex flex-col justify-center z-20 ${event.boxColor} text-black shadow-2xl p-6 md:p-10 md:pr-16 md:pl-14
+        className={`relative w-full h-[80%] flex flex-col justify-center z-20 ${event.boxColor} text-white shadow-2xl p-6 md:p-10 md:pr-16 md:pl-14
             md:absolute md:w-[600px] md:h-auto md:min-h-[340px] md:-bottom-20 md:-right-20`}
       >
         {/* Title */}
@@ -109,7 +109,7 @@ const EventCard = ({
         >
           {/* CHANGE 2: Bumped up text sizes (sm->base, base->lg) */}
           <p
-            className={`font-poppins font-medium leading-relaxed block tracking-wide ${
+            className={`font-body font-medium leading-relaxed block tracking-wide ${
               isMain
                 ? "text-base md:text-lg" // Main card is now Large
                 : "text-sm md:text-base line-clamp-4" // Side cards are now Base
@@ -224,7 +224,7 @@ const HeadlinerEvents = () => {
   };
 
   return (
-    <div className="relative w-full min-h-screen h-auto bg-[#0E0B14] text-white overflow-x-hidden flex flex-col font-sans py-10 md:py-20">
+    <div className="relative w-full min-h-screen h-auto bg-[#6111E6] text-white overflow-x-hidden flex flex-col font-sans py-10 md:py-20">
       {/* 2. Main Header */}
       <SectionHeading
         text1="HEADLINER"
@@ -311,7 +311,7 @@ const HeadlinerEvents = () => {
             </button>
             <button
               onClick={nextSlide}
-              className="w-16 h-16 bg-[#F0ABFC] text-white flex items-center justify-center hover:brightness-110 transition-all font-bold shadow-[6px_6px_0px_white] active:shadow-none active:translate-x-[6px] active:translate-y-[6px]"
+              className="w-16 h-16 bg-[#CE025B] text-white flex items-center justify-center hover:brightness-110 transition-all font-bold shadow-[6px_6px_0px_white] active:shadow-none active:translate-x-[6px] active:translate-y-[6px]"
             >
               <svg
                 width="32"

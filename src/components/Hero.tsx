@@ -88,13 +88,13 @@ export default function Hero() {
 
         <div className="relative z-40 w-full mt-[-100vh] pointer-events-none">
           <div className="h-screen w-full" />
-          <div className="relative pointer-events-auto min-h-screen bg-linear-to-b from-[#261A3E] to-[#080312]">
+          <div className="relative pointer-events-auto min-h-screen bg-linear-to-b from-[#6111E6] to-[#6111E6]">
             <AboutPearl />
           </div>
         </div>
       </div>
 
-      <MovingTape />
+      <MovingTape bgColor="bg-[#53D5F9]" />
     </section>
   );
 }

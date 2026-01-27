@@ -9,12 +9,23 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Fuzamic";
+  src: url("./assets/fonts/Fuzamic-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .font-grotesk {
   font-family: "Space Grotesk", sans-serif;
 }
 
 .font-pearl {
   font-family: "Supersquad", sans-serif;
+}
+
+.font-body {
+  font-family: "Fuzamic", sans-serif;
 }
 
 .font-poppins {

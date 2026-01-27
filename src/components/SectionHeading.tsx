@@ -27,13 +27,12 @@ export default function SectionHeading({
 
   const progress = externalProgress || internalProgress;
 
-  const xGhost = useTransform(progress, [0, 1], ["20%", "-20%"]);
+  const xGhost = useTransform(progress, [0, 1], ["3%", "-3%"]);
   const xTitle = useTransform(progress, [0, 1], ["-5%", "5%"]);
 
   return (
     <div
       ref={containerRef}
-      // Reduced vertical padding (py-16 md:py-24) to keep the section tighter
       className="relative flex items-center justify-center py-16 md:py-24 overflow-hidden pointer-events-none"
     >
       {/* --- GHOST BACKGROUND --- */}
@@ -41,7 +40,6 @@ export default function SectionHeading({
         style={{ x: xGhost }}
         className="absolute font-pearl text-white/10 whitespace-nowrap select-none z-0"
       >
-        {/* SIZE UPDATE: Reduced to 12vw on desktop (was 15vw) */}
         <span className="text-[18vw] md:text-[10vw] tracking-widest">
           {ghostText || `${text1} ${text2}`}
         </span>
@@ -52,8 +50,6 @@ export default function SectionHeading({
         style={{ x: xTitle }}
         className="relative z-10 flex gap-4 md:gap-6 font-pearl leading-none drop-shadow-2xl font-normal tracking-widest"
       >
-        {/* SIZE UPDATE: Reduced to 4vw on desktop (was 6vw) */}
-        {/* This makes it look like a "Title" instead of a "Billbaord" */}
         <span className={`${text1Color} text-[8vw] md:text-[4vw]`}>
           {text1}
         </span>

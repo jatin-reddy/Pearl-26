@@ -44,7 +44,7 @@ const AboutPearl = () => {
           className="relative flex flex-col-reverse md:flex-row items-center justify-between mb-24 md:mb-40"
         >
           <div className="w-full md:w-1/2 flex justify-center md:pr-16 mt-10 md:mt-0 mb-10 md:mb-0">
-            <div className="w-7500px] bg-[#d9d9d9] shadow-[15px_15px_0px_rgba(255,255,255,0.1)] flex items-center justify-center border-2 border-white/5">
+            <div className="w-75 h-75 bg-[#d9d9d9] shadow-[15px_15px_0px_rgba(255,255,255,0.1)] flex items-center justify-center border-2 border-white/5">
               <span className="font-pearl text-black text-xl">Comic Asset</span>
             </div>
           </div>
@@ -83,7 +83,7 @@ const AboutPearl = () => {
           </div>
 
           <div className="w-full md:w-1/2 flex justify-center md:pl-16 mt-10 md:mt-0">
-            <div className="w-7500px] bg-[#d9d9d9] shadow-[-15px_15px_0px_rgba(255,255,255,0.1)] flex items-center justify-center border-2 border-white/5">
+            <div className="w-75 h-75 bg-[#d9d9d9] shadow-[-15px_15px_0px_rgba(255,255,255,0.1)] flex items-center justify-center border-2 border-white/5">
               <span className="font-pearl text-black text-xl">Comic Asset</span>
             </div>
           </div>

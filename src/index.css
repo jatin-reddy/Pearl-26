@@ -16,12 +16,19 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Rumba";
+  src: url("./assets/fonts/Rumba-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .font-grotesk {
   font-family: "Space Grotesk", sans-serif;
 }
 
 .font-pearl {
-  font-family: "Supersquad", sans-serif;
+  font-family: "Rumba", sans-serif;
 }
 
 .font-body {

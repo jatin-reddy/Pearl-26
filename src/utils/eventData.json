@@ -1,0 +1,44 @@
+ {
+    "headlinerEvents": [
+      {
+        "id": "pearl-opening-night-2026",
+        "title": "Pearl Opening Night",
+        "description": "Kick off Pearl with a high-energy opening ceremony featuring performances, showcases, and announcements.",
+        "ctaLabel": "Learn More",
+        "image": {
+          "src": "/images/events/opening-night.jpg",
+          "alt": "Stage lights and crowd during the opening night"
+        }
+      },
+      {
+        "id": "battle-of-bands-2026",
+        "title": "Battle of the Bands",
+        "description": "Top campus bands compete live. Expect loud riffs, big vocals, and bigger crowd energy.",
+        "ctaLabel": "Get Pass",
+        "image": {
+          "src": "/images/events/battle-of-bands.jpg",
+          "alt": "Band performing on an outdoor stage"
+        }
+      },
+      {
+        "id": "esports-showdown-2026",
+        "title": "Esports Showdown",
+        "description": "A competitive gaming tournament with live casting, finals on the big screen, and audience challenges.",
+        "ctaLabel": "Register",
+        "image": {
+          "src": "/images/events/esports-showdown.jpg",
+          "alt": "Gaming setup with keyboards and monitors"
+        }
+      },
+      {
+        "id": "cultural-night-2026",
+        "title": "Cultural Night",
+        "description": "A celebration of traditions through dance, music, and fashion—ending with a grand finale act.",
+        "ctaLabel": "See Lineup",
+        "image": {
+          "src": "/images/events/cultural-night.jpg",
+          "alt": "Performers in traditional attire on stage"
+        }
+      }
+    ]
+  }

@@ -1,0 +1,112 @@
+{
+    "events": [
+      {
+        "id": "ws-uiux-bootcamp",
+        "name": "UI/UX Bootcamp",
+        "category": "workshops",
+        "image": {
+          "src": "/images/events/uiux-bootcamp.jpg",
+          "alt": "Students sketching wireframes on a whiteboard"
+        }
+      },
+      {
+        "id": "ws-web3-basics",
+        "name": "Web3 Basics Workshop",
+        "category": "workshops",
+        "image": {
+          "src": "/images/events/web3-workshop.jpg",
+          "alt": "Speaker presenting blockchain concepts"
+        }
+      },
+      {
+        "id": "game-fifa-night",
+        "name": "FIFA Night",
+        "category": "games",
+        "image": {
+          "src": "/images/events/fifa-night.jpg",
+          "alt": "Game controller with a football game on screen"
+        }
+      },
+      {
+        "id": "game-valorant-showmatch",
+        "name": "Valorant Showmatch",
+        "category": "games",
+        "image": {
+          "src": "/images/events/valorant-showmatch.jpg",
+          "alt": "Esports arena lights and multiple monitors"
+        }
+      },
+      {
+        "id": "comp-hackathon-sprint",
+        "name": "Hackathon Sprint",
+        "category": "competitions",
+        "image": {
+          "src": "/images/events/hackathon.jpg",
+          "alt": "Developers working on laptops during a hackathon"
+        }
+      },
+      {
+        "id": "comp-design-duel",
+        "name": "Design Duel",
+        "category": "competitions",
+        "image": {
+          "src": "/images/events/design-duel.jpg",
+          "alt": "Two designers working side by side"
+        }
+      },
+      {
+        "id": "talk-future-of-ai",
+        "name": "Talk: Future of AI",
+        "category": "talks",
+        "image": {
+          "src": "/images/events/future-of-ai.jpg",
+          "alt": "Microphone on stage with audience blurred in background"
+        }
+      },
+      {
+        "id": "talk-startup-stories",
+        "name": "Talk: Startup Stories",
+        "category": "talks",
+        "image": {
+          "src": "/images/events/startup-stories.jpg",
+          "alt": "Panel discussion with multiple speakers"
+        }
+      },
+      {
+        "id": "other-open-mic",
+        "name": "Open Mic Night",
+        "category": "others",
+        "image": {
+          "src": "/images/events/open-mic.jpg",
+          "alt": "Spotlight on a microphone stand"
+        }
+      },
+      {
+        "id": "other-art-expo",
+        "name": "Art Expo Walkthrough",
+        "category": "others",
+        "image": {
+          "src": "/images/events/art-expo.jpg",
+          "alt": "Art gallery wall with framed pieces"
+        }
+      },
+      {
+        "id": "ws-react-crash-course",
+        "name": "React Crash Course",
+        "category": "workshops",
+        "image": {
+          "src": "/images/events/react-crash-course.jpg",
+          "alt": "Code editor on a projector screen"
+        }
+      },
+      {
+        "id": "comp-code-golf",
+        "name": "Code Golf Challenge",
+        "category": "competitions",
+        "image": {
+          "src": "/images/events/code-golf.jpg",
+          "alt": "Hands typing fast on a keyboard"
+        }
+      }
+    ]
+  }

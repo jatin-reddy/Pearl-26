@@ -1,4 +1,4 @@
-import React from "react";
+
 import allEventData from "../../utils/allEventData.json";
 import EventCard, { type Event } from "./EventCard";
 import type { EventCategory } from "./Filter";

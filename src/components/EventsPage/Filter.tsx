@@ -1,4 +1,4 @@
-import React from "react";
+
 
 export type EventCategory = "all" | "workshops" | "games" | "competitions" | "talks" | "others";
 

@@ -5,8 +5,12 @@
         "name": "UI/UX Bootcamp",
         "category": "workshops",
         "image": {
-          "src": "/images/events/uiux-bootcamp.jpg",
+          "src": "https://images.unsplash.com/photo-1559027615-cd4628902d4a",
           "alt": "Students sketching wireframes on a whiteboard"
+        },
+        "hoverImage": {
+          "src": "https://images.unsplash.com/photo-1558655146-d09347e92766",
+          "alt": "UI UX design process on desk"
         }
       },
       {
@@ -14,8 +18,12 @@
         "name": "Web3 Basics Workshop",
         "category": "workshops",
         "image": {
-          "src": "/images/events/web3-workshop.jpg",
+          "src": "https://images.unsplash.com/photo-1639762681057-408e52192e55",
           "alt": "Speaker presenting blockchain concepts"
+        },
+        "hoverImage": {
+          "src": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485",
+          "alt": "Blockchain visualization graphic"
         }
       },
       {
@@ -23,8 +31,12 @@
         "name": "FIFA Night",
         "category": "games",
         "image": {
-          "src": "/images/events/fifa-night.jpg",
+          "src": "https://images.unsplash.com/photo-1605902711622-cfb43c4437d1",
           "alt": "Game controller with a football game on screen"
+        },
+        "hoverImage": {
+          "src": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7",
+          "alt": "Gaming setup with neon lights"
         }
       },
       {
@@ -32,8 +44,12 @@
         "name": "Valorant Showmatch",
         "category": "games",
         "image": {
-          "src": "/images/events/valorant-showmatch.jpg",
-          "alt": "Esports arena lights and multiple monitors"
+          "src": "https://images.unsplash.com/photo-1598550880863-4e8aa3d0f9a8",
+          "alt": "Esports arena lights and monitors"
+        },
+        "hoverImage": {
+          "src": "https://images.unsplash.com/photo-1603481588273-2f908a9a7a1b",
+          "alt": "RGB gaming battle station"
         }
       },
       {
@@ -41,8 +57,12 @@
         "name": "Hackathon Sprint",
         "category": "competitions",
         "image": {
-          "src": "/images/events/hackathon.jpg",
-          "alt": "Developers working on laptops during a hackathon"
+          "src": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
+          "alt": "Developers working during hackathon"
+        },
+        "hoverImage": {
+          "src": "https://images.unsplash.com/photo-1555066931-4365d14bab8c",
+          "alt": "Laptop coding late night"
         }
       },
       {
@@ -50,8 +70,12 @@
         "name": "Design Duel",
         "category": "competitions",
         "image": {
-          "src": "/images/events/design-duel.jpg",
+          "src": "https://images.unsplash.com/photo-1587614382346-4ec9e6b0c7b5",
           "alt": "Two designers working side by side"
+        },
+        "hoverImage": {
+          "src": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0",
+          "alt": "Creative desk with sketches"
         }
       },
       {
@@ -59,8 +83,12 @@
         "name": "Talk: Future of AI",
         "category": "talks",
         "image": {
-          "src": "/images/events/future-of-ai.jpg",
-          "alt": "Microphone on stage with audience blurred in background"
+          "src": "https://images.unsplash.com/photo-1531746790731-6c087fecd65a",
+          "alt": "Microphone on stage with audience blurred"
+        },
+        "hoverImage": {
+          "src": "https://images.unsplash.com/photo-1677442136019-21780ecad995",
+          "alt": "AI digital brain graphic"
         }
       },
       {
@@ -68,8 +96,12 @@
         "name": "Talk: Startup Stories",
         "category": "talks",
         "image": {
-          "src": "/images/events/startup-stories.jpg",
-          "alt": "Panel discussion with multiple speakers"
+          "src": "https://images.unsplash.com/photo-1556761175-4b46a572b786",
+          "alt": "Panel discussion with speakers"
+        },
+        "hoverImage": {
+          "src": "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
+          "alt": "Startup brainstorming session"
         }
       },
       {
@@ -77,8 +109,12 @@
         "name": "Open Mic Night",
         "category": "others",
         "image": {
-          "src": "/images/events/open-mic.jpg",
+          "src": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4",
           "alt": "Spotlight on a microphone stand"
+        },
+        "hoverImage": {
+          "src": "https://images.unsplash.com/photo-1497032205916-ac775f0649ae",
+          "alt": "Crowd cheering at performance"
         }
       },
       {
@@ -86,8 +122,12 @@
         "name": "Art Expo Walkthrough",
         "category": "others",
         "image": {
-          "src": "/images/events/art-expo.jpg",
+          "src": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
           "alt": "Art gallery wall with framed pieces"
+        },
+        "hoverImage": {
+          "src": "https://images.unsplash.com/photo-1549887534-1541e9326642",
+          "alt": "Closeup of modern art painting"
         }
       },
       {
@@ -95,8 +135,12 @@
         "name": "React Crash Course",
         "category": "workshops",
         "image": {
-          "src": "/images/events/react-crash-course.jpg",
-          "alt": "Code editor on a projector screen"
+          "src": "https://images.unsplash.com/photo-1581276879432-15e50529f34b",
+          "alt": "Code editor on projector screen"
+        },
+        "hoverImage": {
+          "src": "https://images.unsplash.com/photo-1618477247222-acbdb0e159b3",
+          "alt": "React code on laptop screen"
         }
       },
       {
@@ -104,9 +148,14 @@
         "name": "Code Golf Challenge",
         "category": "competitions",
         "image": {
-          "src": "/images/events/code-golf.jpg",
-          "alt": "Hands typing fast on a keyboard"
+          "src": "https://images.unsplash.com/photo-1517430816045-df4b7de11d1d",
+          "alt": "Hands typing fast on keyboard"
+        },
+        "hoverImage": {
+          "src": "https://images.unsplash.com/photo-1550439062-609e1531270e",
+          "alt": "Terminal and fast coding session"
         }
       }
     ]
   }
+  

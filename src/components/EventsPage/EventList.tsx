@@ -39,7 +39,7 @@ function EventList({ category }: EventListProps) {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.2 }}
-      className="grid grid-cols-4 gap-8 px-24 py-24"
+      className="grid md:grid-cols-4 md:gap-8 md:px-24 md:py-24 px-4 gap-6 grid-cols-2 py-12"
     >
       {filtered.map((event, i) => (
         <motion.div

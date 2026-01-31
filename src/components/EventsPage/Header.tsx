@@ -53,15 +53,15 @@ function Header() {
       externalProgress={scrollYProgress}
     />
 
-    <div className="headlinerEventsContainer flex flex-col gap-10 mb-20 px-24">
-      <h2 className="text-4xl text-white font-body font-light py-12 flex justify-center items-center">
+    <div className="headlinerEventsContainer flex flex-col gap-10 max-md:gap-5 mb-20 px-24">
+      <h2 className="text-4xl text-white font-body font-light py-12 flex justify-center items-center max-md:text-lg">
         HEADLINER EVENTS
       </h2>
 
       {activeEvent ? (
-        <div className="headlinerEventsContent flex gap-30 ">
-          <div className="eventImage flex items-center gap-10">
-            <div className="eventCard bg-white h-[416px] w-[695px] shadow-[14px_14px_0_0_rgba(0,0,0,1)] overflow-hidden">
+        <div className="headlinerEventsContent flex gap-30 max-md:gap-10 max-md:flex-col justify-center items-center max-md:px-10">
+          <div className="eventImage flex items-center gap-10 ">
+            <div className="eventCard bg-white h-[416px] w-[695px] shadow-[14px_14px_0_0_rgba(0,0,0,1)] overflow-hidden max-md:w-[200px] max-md:h-[180px] max-md:shadow-[8px_8px_0_0_rgba(0,0,0,1)] "> 
               {activeEvent.image?.src ? (
                 <img
                   src={activeEvent.image.src}
@@ -82,7 +82,7 @@ function Header() {
                 type="button"
                 aria-label="Previous event"
                 disabled={total <= 1}
-                className="h-[116px] w-[118px] bg-[#FFEC6F] shadow-[4px_4px_0_0_rgba(0,0,0,1)] flex justify-center items-center cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                className="h-[116px] w-[118px] max-md:h-[50px] max-md:w-[52px] bg-[#FFEC6F] shadow-[4px_4px_0_0_rgba(0,0,0,1)] flex justify-center items-center cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                 onClick={goPrev}
               >
                 <span
@@ -100,7 +100,7 @@ function Header() {
                 type="button"
                 aria-label="Next event"
                 disabled={total <= 1}
-                className="h-[116px] w-[118px] bg-white shadow-[4px_4px_0_0_rgba(0,0,0,1)] flex justify-center items-center cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                className="h-[116px] w-[118px] max-md:h-[50px] max-md:w-[52px] bg-white shadow-[4px_4px_0_0_rgba(0,0,0,1)] flex justify-center items-center cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                 onClick={goNext}
               >
                 <span
@@ -115,8 +115,8 @@ function Header() {
             </div>
           </div>
 
-          <div className="eventDetails flex flex-col gap-6 w-[400px]">
-            <h3 className="relative text-3xl font-bold font-pearl font-stretch-semi-expanded">
+          <div className="eventDetails flex flex-col gap-6 w-[400px] max-md:px-10 max-md:items-center">
+            <h3 className="relative text-3xl max-md:text-lg font-bold font-pearl font-stretch-semi-expanded">
               <span className="absolute left-0 top-0 translate-y-[6px] text-black tracking-wider select-none pointer-events-none">
                 {activeEvent.title}
               </span>

@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
+import MovingTape from "./Tape";
 
 const EVENTS = [
   {
@@ -109,11 +110,10 @@ const EventCard = ({
         >
           {/* CHANGE 2: Bumped up text sizes (sm->base, base->lg) */}
           <p
-            className={`font-poppins font-medium leading-relaxed block tracking-wide ${
-              isMain
-                ? "text-base md:text-lg" // Main card is now Large
-                : "text-sm md:text-base line-clamp-4" // Side cards are now Base
-            }`}
+            className={`font-poppins font-medium leading-relaxed block tracking-wide ${isMain
+              ? "text-base md:text-lg" // Main card is now Large
+              : "text-sm md:text-base line-clamp-4" // Side cards are now Base
+              }`}
           >
             {event.description}
           </p>
@@ -224,122 +224,124 @@ const HeadlinerEvents = () => {
   };
 
   return (
-    <div className="relative w-full min-h-screen h-auto bg-[#0E0B14] text-white overflow-x-hidden flex flex-col font-sans py-10 md:py-20">
-      {/* 2. Main Header */}
-      <SectionHeading
-        text1="HEADLINER"
-        text2="EVENTS"
-        text2Color="text-[#d946ef]" // Fuschia/Purple
-      />
-      {/* 3. The Carousel */}
-      <main className="relative flex-1 min-h-[500px] md:min-h-[750px] flex items-center justify-center w-full overflow-hidden">
-        <div className="relative w-full h-[500px] md:h-[750px] flex items-center justify-center text-center">
-          {[-2, -1, 0, 1, 2].map((offset) => {
-            const idx = positionIndex + offset;
-            const eventIndex = getEventIndex(idx);
+    <>
+      <div className="relative w-full min-h-screen h-auto bg-[#0E0B14] text-white overflow-x-hidden flex flex-col font-sans py-10 md:py-20">
+        {/* 2. Main Header */}
+        <SectionHeading
+          text1="HEADLINER"
+          text2="EVENTS"
+          text2Color="text-[#d946ef]" // Fuschia/Purple
+        />
+        {/* 3. The Carousel */}
+        <main className="relative flex-1 min-h-[500px] md:min-h-[750px] flex items-center justify-center w-full overflow-hidden">
+          <div className="relative w-full h-[500px] md:h-[750px] flex items-center justify-center text-center">
+            {[-2, -1, 0, 1, 2].map((offset) => {
+              const idx = positionIndex + offset;
+              const eventIndex = getEventIndex(idx);
 
-            let pos = "center";
-            if (offset === -1) pos = "left1";
-            else if (offset === -2) pos = "left2";
-            else if (offset === 1) pos = "right1";
-            else if (offset === 2) pos = "right2";
+              let pos = "center";
+              if (offset === -1) pos = "left1";
+              else if (offset === -2) pos = "left2";
+              else if (offset === 1) pos = "right1";
+              else if (offset === 2) pos = "right2";
 
-            // @ts-expect-error - indexing strictly controlled by pos logic
-            const targetVariant = imageVariants[pos];
+              // @ts-expect-error - indexing strictly controlled by pos logic
+              const targetVariant = imageVariants[pos];
 
-            return (
-              <motion.div
-                key={idx}
-                initial={false}
-                animate={{
-                  ...targetVariant,
-                  scale: isShrinking ? 0.9 : targetVariant.scale, // Override scale
-                }}
-                transition={{
-                  duration: 0.5,
-                  ease: [0.25, 1, 0.5, 1],
-                  scale: { duration: 0.2 }, // Faster scale transition
-                }}
-                drag="x"
-                dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={0.05}
-                onDragEnd={(_, { offset }) => {
-                  const swipeThreshold = 50;
-                  if (offset.x < -swipeThreshold) {
-                    nextSlide();
-                  } else if (offset.x > swipeThreshold) {
-                    prevSlide();
-                  }
-                }}
-                className={`absolute w-[80vw] md:w-[900px] h-[450px] md:h-[500px] shadow-[0_30px_80px_rgba(0,0,0,0.8)] ${
-                  offset === 0
+              return (
+                <motion.div
+                  key={idx}
+                  initial={false}
+                  animate={{
+                    ...targetVariant,
+                    scale: isShrinking ? 0.9 : targetVariant.scale, // Override scale
+                  }}
+                  transition={{
+                    duration: 0.5,
+                    ease: [0.25, 1, 0.5, 1],
+                    scale: { duration: 0.2 }, // Faster scale transition
+                  }}
+                  drag="x"
+                  dragConstraints={{ left: 0, right: 0 }}
+                  dragElastic={0.05}
+                  onDragEnd={(_, { offset }) => {
+                    const swipeThreshold = 50;
+                    if (offset.x < -swipeThreshold) {
+                      nextSlide();
+                    } else if (offset.x > swipeThreshold) {
+                      prevSlide();
+                    }
+                  }}
+                  className={`absolute w-[80vw] md:w-[900px] h-[450px] md:h-[500px] shadow-[0_30px_80px_rgba(0,0,0,0.8)] ${offset === 0
                     ? "z-20"
                     : "z-10 cursor-pointer hover:brightness-110"
-                }`}
-                onClick={() => {
-                  if (offset === -1) prevSlide();
-                  if (offset === 1) nextSlide();
-                }}
-              >
-                <div className="w-full h-full pointer-events-none md:pointer-events-auto">
-                  <EventCard event={EVENTS[eventIndex]} isMain={offset === 0} />
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
-      </main>
-      {/* 4. Footer Controls */}
-      <footer className="relative z-20 px-8 md:px-16 pb-12 w-full border-t border-white/10 pt-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-0">
-          {/* Buttons */}
-          <div className="flex gap-6">
-            <button
-              onClick={prevSlide}
-              className="w-16 h-16 bg-[#22D3EE] text-white flex items-center justify-center hover:brightness-110 transition-all font-bold shadow-[6px_6px_0px_white] active:shadow-none active:translate-x-[6px] active:translate-y-[6px]"
-            >
-              <svg
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="3"
-              >
-                <path d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            <button
-              onClick={nextSlide}
-              className="w-16 h-16 bg-[#F0ABFC] text-white flex items-center justify-center hover:brightness-110 transition-all font-bold shadow-[6px_6px_0px_white] active:shadow-none active:translate-x-[6px] active:translate-y-[6px]"
-            >
-              <svg
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="3"
-              >
-                <path d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
+                    }`}
+                  onClick={() => {
+                    if (offset === -1) prevSlide();
+                    if (offset === 1) nextSlide();
+                  }}
+                >
+                  <div className="w-full h-full pointer-events-none md:pointer-events-auto">
+                    <EventCard event={EVENTS[eventIndex]} isMain={offset === 0} />
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
+        </main>
+        {/* 4. Footer Controls */}
+        <footer className="relative z-20 px-8 md:px-16 pb-12 w-full border-t border-white/10 pt-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-0">
+            {/* Buttons */}
+            <div className="flex gap-6">
+              <button
+                onClick={prevSlide}
+                className="w-16 h-16 bg-[#22D3EE] text-white flex items-center justify-center hover:brightness-110 transition-all font-bold shadow-[6px_6px_0px_white] active:shadow-none active:translate-x-[6px] active:translate-y-[6px]"
+              >
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                >
+                  <path d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button
+                onClick={nextSlide}
+                className="w-16 h-16 bg-[#F0ABFC] text-white flex items-center justify-center hover:brightness-110 transition-all font-bold shadow-[6px_6px_0px_white] active:shadow-none active:translate-x-[6px] active:translate-y-[6px]"
+              >
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                >
+                  <path d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
 
-          {/* Line Progress */}
-          <div className="flex-1 mx-16 h-[1px] bg-white/10 relative">
-            <motion.div
-              className="absolute top-0 bottom-0 left-0 bg-[#22D3EE] h-full shadow-[0_0_10px_#22D3EE]"
-              initial={{ width: "0%" }}
-              animate={{
-                width: `${(((Math.abs(positionIndex) % EVENTS.length) + 1) / EVENTS.length) * 100}%`,
-              }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            />
+            {/* Line Progress */}
+            <div className="flex-1 mx-16 h-[1px] bg-white/10 relative">
+              <motion.div
+                className="absolute top-0 bottom-0 left-0 bg-[#22D3EE] h-full shadow-[0_0_10px_#22D3EE]"
+                initial={{ width: "0%" }}
+                animate={{
+                  width: `${(((Math.abs(positionIndex) % EVENTS.length) + 1) / EVENTS.length) * 100}%`,
+                }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              />
+            </div>
           </div>
-        </div>
-      </footer>
-    </div>
+        </footer>
+      </div>
+      <MovingTape />
+    </>
   );
 };
 

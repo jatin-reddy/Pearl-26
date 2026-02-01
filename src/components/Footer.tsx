@@ -1,13 +1,13 @@
 import pearlLogo from "/Pearl'26_logo.svg";
-import papercut from "../assets/Footer/Papercut.svg";
-import city from "../assets/Footer/City.svg";
-import phone from "../assets/Footer/phone-stroke.svg";
-import email from "../assets/Footer/Email.svg";
-import mapPin from "../assets/Footer/map-pin-stroke.svg";
-import instagram from "../assets/Footer/Instagram.svg";
-import facebook from "../assets/Footer/Facebook.svg";
-import share from "../assets/Footer/share-01-stroke.svg";
-import madeByDota from "../assets/Footer/made by DoTA.svg";
+import papercut from "../assets/footer/Papercut.svg";
+import city from "../assets/footer/City.svg";
+import phone from "../assets/footer/phone-stroke.svg";
+import email from "../assets/footer/Email.svg";
+import mapPin from "../assets/footer/map-pin-stroke.svg";
+import instagram from "../assets/footer/Instagram.svg";
+import facebook from "../assets/footer/Facebook.svg";
+import share from "../assets/footer/share-01-stroke.svg";
+import madeByDota from "../assets/footer/made by DoTA.svg";
 
 const Footer = () => {
     const handleShare = async () => {

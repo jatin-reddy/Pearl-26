@@ -1,4 +1,4 @@
-import  { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export type EventCategory =
   | "all"
@@ -27,12 +27,14 @@ function Filter({ value, onChange }: FilterProps) {
   const btnRef = useRef<HTMLButtonElement | null>(null);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
-  const activeLabel = CATEGORIES.find((c) => c.key === value)?.label ?? "Filters";
+  const activeLabel =
+    CATEGORIES.find((c) => c.key === value)?.label ?? "Filters";
 
   useEffect(() => {
     const onDocClick = (e: MouseEvent) => {
       const t = e.target as Node;
-      if (!menuRef.current?.contains(t) && !btnRef.current?.contains(t)) setOpen(false);
+      if (!menuRef.current?.contains(t) && !btnRef.current?.contains(t))
+        setOpen(false);
     };
     const onEsc = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpen(false);
@@ -47,7 +49,7 @@ function Filter({ value, onChange }: FilterProps) {
   }, []);
 
   return (
-    <nav className="w-full px-4 md:px-24 pt-8">
+    <nav className="w-full px-4 md:px-24 pt-24 pb-12">
       {/* Mobile: custom dropdown */}
       <div className="flex justify-center md:hidden">
         <div className="relative w-full max-w-xs">
@@ -98,7 +100,9 @@ function Filter({ value, onChange }: FilterProps) {
                       "w-full text-left px-4 py-3 font-body tracking-wide",
                       "border-b border-black/10 last:border-b-0",
                       "transition",
-                      active ? "bg-[#F3D300] text-black" : "bg-white text-black hover:bg-[#F3D300]/30",
+                      active
+                        ? "bg-[#F3D300] text-black"
+                        : "bg-white text-black hover:bg-[#F3D300]/30",
                     ].join(" ")}
                   >
                     {c.label}

@@ -10,8 +10,8 @@ const Gallery: React.FC = () => {
 
       <div className="flex-none pt-20 pb-10">
         <SectionHeading
-          text1="HEADLINER"
-          text2="EVENTS"
+          text1="OUR"
+          text2="GALLERY"
           text2Color="text-[#F53489]"
         />
       </div>

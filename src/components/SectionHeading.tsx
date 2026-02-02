@@ -47,8 +47,11 @@ export default function SectionHeading({
 
       {/* --- FOREGROUND TITLE --- */}
       <motion.div
-        style={{ x: xTitle }}
-        className="relative z-10 flex gap-4 md:gap-6 font-pearl leading-none drop-shadow-2xl font-normal tracking-widest"
+        style={{
+          x: xTitle,
+          filter: "drop-shadow(6px 6px 0px rgba(0, 0, 0, 0.8))"
+        }}
+        className="relative z-10 flex gap-4 md:gap-6 font-pearl leading-none font-normal tracking-widest"
       >
         <span className={`${text1Color} text-[8vw] md:text-[4vw]`}>
           {text1}

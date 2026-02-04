@@ -17,7 +17,7 @@ const ComicCTA: React.FC<ComicCTAProps> = ({
       <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between relative z-10">
         <div className="md:w-1/2 mb-8 md:mb-0 text-center md:text-left z-20">
           <h2
-            className="text-3xl md:text-7xl font-black text-white italic leading-none md:leading-tight uppercase transform -skew-x-2"
+            className="text-3xl md:text-5xl font-pearl text-white italic leading-none md:leading-tight uppercase transform -skew-x-2"
             style={{
               WebkitTextStroke: "2px black",
               textShadow: "3px 3px 0px #000",

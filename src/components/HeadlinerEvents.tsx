@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
 import MovingTape from "./Tape";
 
+import cypher from "../assets/headliners/cypher2.jpeg";
+import cypherMobile from "../assets/headliners/cypher_mobile.jpeg";
 const EVENTS = [
   {
     id: 1,
@@ -10,6 +12,8 @@ const EVENTS = [
     title: "KALEIDOSCOPE",
     description:
       "Frames that speak. A national short film battle where storytellers weave cinematic magic around a central theme.",
+    image: cypher,
+    mobileImage: cypherMobile,
     baseColor: "bg-[#E5E5E5]",
     stroke: "#22D3EE",
     boxColor: "bg-[#F0ABFC]",
@@ -20,6 +24,8 @@ const EVENTS = [
     title: "TERPSICHORE",
     description:
       "Sync. Rhythm. Rebellion. The ultimate western group dance showdown where top crews battle for dominance.",
+    image: cypher,
+    mobileImage: cypherMobile,
     baseColor: "bg-[#E5E5E5]",
     stroke: "#22D3EE",
     boxColor: "bg-[#F0ABFC]",
@@ -31,6 +37,8 @@ const EVENTS = [
     description:
       "The hunt for the next comic genius. Armed with just a mic, performers battle to be the last one laughing.",
     baseColor: "bg-[#E5E5E5]",
+    image: cypher,
+    mobileImage: cypherMobile,
     stroke: "#22D3EE",
     boxColor: "bg-[#F0ABFC]",
   },
@@ -40,6 +48,8 @@ const EVENTS = [
     title: "TILL DEAF DO WE PART",
     description:
       "Amps cranked to eleven. The country's best semi-pro bands collide in a high-voltage sonic battle.",
+    image: cypher,
+    mobileImage: cypherMobile,
     baseColor: "bg-[#E5E5E5]",
     stroke: "#22D3EE",
     boxColor: "bg-[#F0ABFC]",
@@ -51,6 +61,8 @@ const EVENTS = [
     description:
       "High fashion meets high fantasy. A runway spectacle of glamour, mystique, and ethereal elegance.",
     baseColor: "bg-[#E5E5E5]",
+    image: cypher,
+    mobileImage: cypherMobile,
     stroke: "#22D3EE",
     boxColor: "bg-[#F0ABFC]",
   },
@@ -61,6 +73,8 @@ const EVENTS = [
     description:
       "The street is the stage. Raw energy and bold scripts echo through the crowd in this battle of voices.",
     baseColor: "bg-[#E5E5E5]",
+    image: cypher,
+    mobileImage: cypherMobile,
     stroke: "#22D3EE",
     boxColor: "bg-[#F0ABFC]",
   },
@@ -71,6 +85,8 @@ interface Event {
   number: string;
   title: string;
   description: string;
+  image?: string;
+  mobileImage?: string;
   baseColor: string;
   stroke: string;
   boxColor: string;
@@ -91,6 +107,20 @@ const EventCard = ({
       <div
         className={`relative h-[80%] md:h-auto md:flex-1 w-full md:absolute md:inset-0 z-0 ${event.baseColor} flex items-center justify-center shadow-lg`}
       >
+        <picture>
+          {/* Desktop Image: Only loads if screen is wider than 768px */}
+          <source media="(min-width: 768px)" srcSet={event.image} />
+
+          {/* Mobile Image: Loads by default on small screens */}
+          {/* Fallback logic: If mobileImage is missing, use event.image */}
+          <img
+            src={event.mobileImage || event.image}
+            alt={event.title}
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
         <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent" />
       </div>
 
@@ -98,10 +128,10 @@ const EventCard = ({
       <div
         // CHANGE 1: Added `md:pl-14` to give that specific left breathing room
         className={`relative w-full h-[80%] flex flex-col justify-center z-20 ${event.boxColor} text-black shadow-2xl p-6 md:p-10 md:pr-16 md:pl-14
-            md:absolute md:w-[600px] md:h-auto md:min-h-[340px] md:-bottom-20 md:-right-20`}
+            md:absolute md:w-[600px] md:h-auto md:min-h-[340px] md:-bottom-20 md:-right-30`}
       >
         {/* Title */}
-        <h3 className="font-pearl uppercase leading-none mb-2 md:mb-4 text-3xl md:text-4xl text-left tracking-wide">
+        <h3 className="font-pearl uppercase leading-none mb-2 md:mb-4 text-2xl md:text-4xl text-left tracking-wide">
           {event.title}
         </h3>
 
@@ -110,17 +140,18 @@ const EventCard = ({
         >
           {/* CHANGE 2: Bumped up text sizes (sm->base, base->lg) */}
           <p
-            className={`font-poppins font-medium leading-relaxed block tracking-wide ${isMain
-              ? "text-base md:text-lg" // Main card is now Large
-              : "text-sm md:text-base line-clamp-4" // Side cards are now Base
-              }`}
+            className={`font-body font-medium leading-relaxed block tracking-wide ${
+              isMain
+                ? "text-base md:text-xl" // Main card is now Large
+                : "text-sm md:text-base line-clamp-4" // Side cards are now Base
+            }`}
           >
             {event.description}
           </p>
         </div>
       </div>
 
-      {/* Outlined Number */}
+      {/* Outlined Number 
       <div
         className={`absolute z-50 font-pearl font-normal tracking-wide leading-none transition-all duration-500 select-none pointer-events-none flex items-center justify-center
            text-[6rem] md:text-[9.5rem] inset-0 top-1/2 -translate-y-1/2 md:translate-y-0 md:top-0`}
@@ -130,7 +161,7 @@ const EventCard = ({
         }}
       >
         <span className="-translate-y-4 md:-translate-y-6">{event.number}</span>
-      </div>
+      </div>*/}
     </div>
   );
 };
@@ -272,17 +303,21 @@ const HeadlinerEvents = () => {
                       prevSlide();
                     }
                   }}
-                  className={`absolute w-[80vw] md:w-[900px] h-[450px] md:h-[500px] shadow-[0_30px_80px_rgba(0,0,0,0.8)] ${offset === 0
-                    ? "z-20"
-                    : "z-10 cursor-pointer hover:brightness-110"
-                    }`}
+                  className={`absolute w-[80vw] md:w-[900px] h-[450px] md:h-[500px] shadow-[0_30px_80px_rgba(0,0,0,0.8)] ${
+                    offset === 0
+                      ? "z-20"
+                      : "z-10 cursor-pointer hover:brightness-110"
+                  }`}
                   onClick={() => {
                     if (offset === -1) prevSlide();
                     if (offset === 1) nextSlide();
                   }}
                 >
                   <div className="w-full h-full pointer-events-none md:pointer-events-auto">
-                    <EventCard event={EVENTS[eventIndex]} isMain={offset === 0} />
+                    <EventCard
+                      event={EVENTS[eventIndex]}
+                      isMain={offset === 0}
+                    />
                   </div>
                 </motion.div>
               );

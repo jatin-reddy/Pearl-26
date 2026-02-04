@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { ReactLenis } from "lenis/react";
 import NavMenu from "./components/Nav";
-// import Footer from "./components/Foooter";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -10,7 +10,7 @@ const App = () => {
       <main>
         <Outlet />
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </ReactLenis>
   );
 };

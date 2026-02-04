@@ -197,7 +197,10 @@ const NavMenu = () => {
                   className="flex flex-col gap-6 md:gap-12 pb-10"
                 >
                   {navLinks.map((link) => (
-                    <div key={link.id} className="overflow-hidden shrink-0">
+                    <div
+                      key={link.id}
+                      className="overflow-hidden shrink-0 pt-4"
+                    >
                       <motion.div variants={linkVars}>
                         <Link
                           to={link.href}

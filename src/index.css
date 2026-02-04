@@ -16,10 +16,20 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Rumba";
+  src: url("./assets/fonts/rumba.regular (1).otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .font-grotesk {
   font-family: "Space Grotesk", sans-serif;
 }
 
+.font-rumba {
+  font-family: "Rumba", sans-serif;
+}
 .font-pearl {
   font-family: "Supersquad", sans-serif;
 }
@@ -50,9 +60,5 @@ html.lenis body {
 }
 
 .card-shape {
-  
-clip-path: polygon(0 0, 100% 0, 100% 83%, 57% 83%, 46% 100%, 0 100%);
-
+  clip-path: polygon(0 0, 100% 0, 100% 83%, 57% 83%, 46% 100%, 0 100%);
 }
-
-

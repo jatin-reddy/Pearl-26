@@ -1,12 +1,35 @@
+import React from "react";
+import GallerySection from "../components/GallerySection";
 import SectionHeading from "../components/SectionHeading";
+<<<<<<< styles
+import MovingTape from "../components/Tape";
+=======
 import "../Gallery.css"
+>>>>>>> main
 
-const Gallery = () => {
+const Gallery: React.FC = () => {
   return (
+<<<<<<< styles
+    <div className="min-h-screen w-full bg-[#4FB1CD] flex flex-col">
+      <MovingTape />
+
+      <div className="flex-none pt-20 pb-10">
+        <SectionHeading
+          text1="OUR"
+          text2="GALLERY"
+          text2Color="text-[#F53489]"
+        />
+      </div>
+
+      <div className="flex-1 w-full relative mt-4 mb-20">
+        <GallerySection />
+      </div>
+=======
     <div style={{ backgroundColor: "#4FB1CD", minHeight: "100vh" }}>
       <SectionHeading text1="OUR" text2="GALLERY" />
       <CustomerReviewGrid />
       <ReviewCarousel />
+>>>>>>> main
     </div>
   );
 };

@@ -5,6 +5,12 @@ import MovingTape from "./Tape";
 
 import cypher from "../assets/headliners/cypher2.jpeg";
 import cypherMobile from "../assets/headliners/cypher_mobile.jpeg";
+import comedy from "../assets/headliners/comedi.jpeg";
+import comedyMobile from "../assets/headliners/comediMobile (1).jpeg";
+import fashion from "../assets/headliners/glitterrati.jpeg";
+import fashionMobile from "../assets/headliners/fashionMobile.jpeg";
+import drama from "../assets/headliners/dramatics.jpeg";
+import dramaMobile from "../assets/headliners/dramaticMobile.jpeg";
 const EVENTS = [
   {
     id: 1,
@@ -37,8 +43,8 @@ const EVENTS = [
     description:
       "The hunt for the next comic genius. Armed with just a mic, performers battle to be the last one laughing.",
     baseColor: "bg-[#E5E5E5]",
-    image: cypher,
-    mobileImage: cypherMobile,
+    image: comedy,
+    mobileImage: comedyMobile,
     stroke: "#22D3EE",
     boxColor: "bg-[#F0ABFC]",
   },
@@ -61,8 +67,8 @@ const EVENTS = [
     description:
       "High fashion meets high fantasy. A runway spectacle of glamour, mystique, and ethereal elegance.",
     baseColor: "bg-[#E5E5E5]",
-    image: cypher,
-    mobileImage: cypherMobile,
+    image: fashion,
+    mobileImage: fashionMobile,
     stroke: "#22D3EE",
     boxColor: "bg-[#F0ABFC]",
   },
@@ -73,8 +79,8 @@ const EVENTS = [
     description:
       "The street is the stage. Raw energy and bold scripts echo through the crowd in this battle of voices.",
     baseColor: "bg-[#E5E5E5]",
-    image: cypher,
-    mobileImage: cypherMobile,
+    image: drama,
+    mobileImage: dramaMobile,
     stroke: "#22D3EE",
     boxColor: "bg-[#F0ABFC]",
   },

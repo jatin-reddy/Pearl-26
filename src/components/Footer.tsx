@@ -1,4 +1,4 @@
-import pearlLogo from "/Pearl'26_logo.svg";
+import pearlLogo from "/Pearl'26_logo.svg"; 
 import papercut from "../assets/footer/Papercut.svg";
 import city from "../assets/footer/City.svg";
 import phone from "../assets/footer/phone-stroke.svg";

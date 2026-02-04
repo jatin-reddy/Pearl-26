@@ -13,7 +13,6 @@ const Landing = () => {
       <ProShows />
       <PreviousArtists />
       <LatestAftermovie />
-      <Footer />
     </>
   );
 };

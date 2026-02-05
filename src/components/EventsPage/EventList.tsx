@@ -1,10 +1,18 @@
 "use client";
 
 import allEventData from "../../utils/allEventData.json";
-import EventCard, { type Event } from "./EventCard";
+import EventCard from "./EventCard";
 import type { EventCategory } from "./Filter";
-import { motion, useScroll, useTransform, useSpring } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { useRef, useMemo, useState, useEffect } from "react";
+
+export type Event = {
+  id: string;
+  name: string;
+  category: string;
+  image?: { src: string; alt: string };
+  hoverImage?: { src: string; alt: string };
+};
 
 type EventListProps = {
   category: EventCategory;
@@ -23,75 +31,94 @@ function EventList({ category }: EventListProps) {
   const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
-    const checkSize = () => setIsDesktop(window.innerWidth >= 768);
+    // FIX: Use ReturnType<typeof setTimeout> instead of NodeJS.Timeout
+    let timeoutId: ReturnType<typeof setTimeout>;
+
+    const checkSize = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => setIsDesktop(window.innerWidth >= 768), 100);
+    };
+
     checkSize();
     window.addEventListener("resize", checkSize);
-    return () => window.removeEventListener("resize", checkSize);
+
+    return () => {
+      window.removeEventListener("resize", checkSize);
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   const events = (allEventData as { events: Event[] }).events ?? [];
-  const filtered =
-    category === "all" ? events : events.filter((e) => e.category === category);
-  const [col1, col2, col3, col4] = useMemo(
-    () => chunkArray(filtered, 4),
-    [filtered],
-  );
+
+  const filtered = useMemo(() => {
+    return category === "all"
+      ? events
+      : events.filter((e) => e.category === category);
+  }, [category, events]);
+
+  const [col1, col2, col3, col4] = useMemo(() => {
+    if (!isDesktop) return [[], [], [], []];
+    return chunkArray(filtered, 4);
+  }, [filtered, isDesktop]);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
   });
 
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
-
-  const yBase = useTransform(smoothProgress, [0, 1], [0, -50]);
-  const yFast = useTransform(smoothProgress, [0, 1], [0, -200]);
+  const yBase = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const yFast = useTransform(scrollYProgress, [0, 1], [0, -200]);
 
   return (
     <div
       ref={containerRef}
       className="px-4 md:px-10 max-w-[1800px] mx-auto min-h-screen"
     >
+      {/* MOBILE LIST */}
       <div
         className={`${isDesktop ? "hidden" : "grid"} grid-cols-1 sm:grid-cols-2 gap-6 pb-20`}
       >
         {filtered.map((event) => (
-          <EventCard key={event.id} event={event} />
+          <EventCard key={event.id} event={event} isDesktop={isDesktop} />
         ))}
       </div>
+
+      {/* DESKTOP PARALLAX LIST */}
       {isDesktop && (
         <div className="grid grid-cols-4 gap-8 items-start w-full">
-          <motion.div style={{ y: yBase }} className="flex flex-col gap-8">
+          <motion.div
+            style={{ y: yBase }}
+            className="flex flex-col gap-8 will-change-transform"
+          >
             {col1.map((e) => (
-              <EventCard key={e.id} event={e} />
+              <EventCard key={e.id} event={e} isDesktop={isDesktop} />
             ))}
           </motion.div>
 
           <motion.div
             style={{ y: yFast }}
-            className="flex flex-col gap-8 mt-32"
+            className="flex flex-col gap-8 mt-32 will-change-transform"
           >
             {col2.map((e) => (
-              <EventCard key={e.id} event={e} />
+              <EventCard key={e.id} event={e} isDesktop={isDesktop} />
             ))}
           </motion.div>
 
-          <motion.div style={{ y: yBase }} className="flex flex-col gap-8">
+          <motion.div
+            style={{ y: yBase }}
+            className="flex flex-col gap-8 will-change-transform"
+          >
             {col3.map((e) => (
-              <EventCard key={e.id} event={e} />
+              <EventCard key={e.id} event={e} isDesktop={isDesktop} />
             ))}
           </motion.div>
 
           <motion.div
             style={{ y: yFast }}
-            className="flex flex-col gap-8 mt-32"
+            className="flex flex-col gap-8 mt-32 will-change-transform"
           >
             {col4.map((e) => (
-              <EventCard key={e.id} event={e} />
+              <EventCard key={e.id} event={e} isDesktop={isDesktop} />
             ))}
           </motion.div>
         </div>

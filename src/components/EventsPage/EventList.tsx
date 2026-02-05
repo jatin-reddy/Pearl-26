@@ -124,7 +124,8 @@ function EventList({ category }: EventListProps) {
 
       {/* DESKTOP PARALLAX LIST */}
       {isDesktop && (
-        <div className="grid grid-cols-4 gap-8 items-start w-full mb-20">
+        // FIX 1: Removed 'mb-20' here to reduce static gap
+        <div className="grid grid-cols-4 gap-8 items-start w-full">
           <motion.div
             style={{ y: yBase }}
             className="flex flex-col gap-8 will-change-transform"
@@ -165,10 +166,12 @@ function EventList({ category }: EventListProps) {
 
       {/* LOAD MORE BUTTON */}
       {visibleCount < filteredEvents.length && (
-        <div className="w-full flex justify-center relative z-20">
+        <div className="w-full flex justify-center relative z-20 mt-10 md:-mt-32">
+          {/* ^ FIX 2: Added 'md:-mt-32'. This pulls the button UP into the empty space 
+             created by the parallax effect on desktop. */}
           <button
             onClick={handleLoadMore}
-            className="inline-block px-6 py-3 text-lg md:px-6 md:py-4 md:text-xl bg-[#E56399] text-white font-bold uppercase tracking-widest border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-150 hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
+            className="inline-block px-4 py-2 text-md md:px-6 md:py-4 md:text-lg bg-[#E56399] text-white font-bold uppercase tracking-widest border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-150 hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
           >
             Load More ({filteredEvents.length - visibleCount} remaining)
           </button>

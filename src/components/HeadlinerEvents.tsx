@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
 import MovingTape from "./Tape";
 
+import movie from "../assets/headliners/Kaleidoscope.jpeg";
+import movieMobile from "../assets/headliners/KaleidoscopeMobile.jpeg";
 import cypher from "../assets/headliners/cypher2.jpeg";
 import cypherMobile from "../assets/headliners/cypher_mobile.jpeg";
 import comedy from "../assets/headliners/comedi.jpeg";
@@ -11,6 +13,9 @@ import fashion from "../assets/headliners/glitterrati.jpeg";
 import fashionMobile from "../assets/headliners/fashionMobile.jpeg";
 import drama from "../assets/headliners/dramatics.jpeg";
 import dramaMobile from "../assets/headliners/dramaticMobile.jpeg";
+import music from "../assets/headliners/tddwp.jpeg";
+import musicMobile from "../assets/headliners/tddwpMobile.jpeg";
+
 const EVENTS = [
   {
     id: 1,
@@ -18,8 +23,8 @@ const EVENTS = [
     title: "KALEIDOSCOPE",
     description:
       "Frames that speak. A national short film battle where storytellers weave cinematic magic around a central theme.",
-    image: cypher,
-    mobileImage: cypherMobile,
+    image: movie,
+    mobileImage: movieMobile,
     baseColor: "bg-[#E5E5E5]",
     stroke: "#22D3EE",
     boxColor: "bg-[#F0ABFC]",
@@ -54,8 +59,8 @@ const EVENTS = [
     title: "TILL DEAF DO WE PART",
     description:
       "Amps cranked to eleven. The country's best semi-pro bands collide in a high-voltage sonic battle.",
-    image: cypher,
-    mobileImage: cypherMobile,
+    image: music,
+    mobileImage: musicMobile,
     baseColor: "bg-[#E5E5E5]",
     stroke: "#22D3EE",
     boxColor: "bg-[#F0ABFC]",
@@ -137,7 +142,7 @@ const EventCard = ({
             md:absolute md:w-[600px] md:h-auto md:min-h-[340px] md:-bottom-20 md:-right-30`}
       >
         {/* Title */}
-        <h3 className="font-pearl uppercase leading-none mb-2 md:mb-4 text-2xl md:text-4xl text-left tracking-wide">
+        <h3 className="font-pearl uppercase leading-none mb-2 md:mb-4 text-xl md:text-4xl text-left tracking-wide">
           {event.title}
         </h3>
 
@@ -331,7 +336,7 @@ const HeadlinerEvents = () => {
           </div>
         </main>
         {/* 4. Footer Controls */}
-        <footer className="relative z-20 px-8 md:px-16 pb-12 w-full border-t border-white/10 pt-8">
+        <footer className="relative z-20 px-8 md:px-16 pb-12 w-full pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-0">
             {/* Buttons */}
             <div className="flex gap-6">

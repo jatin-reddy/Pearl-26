@@ -5,7 +5,7 @@ interface ComicCTAProps {
   imageSrc?: string;
 }
 
-const ComicCTA: React.FC<ComicCTAProps> = ({
+const CTASection: React.FC<ComicCTAProps> = ({
   bgColor = "#4EB4E6",
   imageSrc,
 }) => {
@@ -53,4 +53,4 @@ const ComicCTA: React.FC<ComicCTAProps> = ({
   );
 };
 
-export default ComicCTA;
+export default CTASection;

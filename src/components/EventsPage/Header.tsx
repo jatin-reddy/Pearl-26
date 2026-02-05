@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { useScroll } from "motion/react";
 import SectionHeading from "../SectionHeading";
 import eventData from "../../utils/eventData.json";
+import MovingTape from "../Tape";
 
 type HeadlinerEvent = {
   id: string;
@@ -44,14 +45,18 @@ function Header() {
       className="bg-[#634AA7] w-full flex flex-col"
       ref={sectionRef as React.RefObject<HTMLDivElement>}
     >
-      <SectionHeading
-        text1="Our"
-        text2="Events"
-        ghostText="Our Events"
-        text1Color="text-[#FFFFFF]"
-        text2Color="text-[#F3D300]"
-        externalProgress={scrollYProgress}
-      />
+      <MovingTape />
+      <div className="mt-20">
+        {" "}
+        <SectionHeading
+          text1="Our"
+          text2="Events"
+          ghostText="Our Events"
+          text1Color="text-[#FFFFFF]"
+          text2Color="text-[#F3D300]"
+          externalProgress={scrollYProgress}
+        />
+      </div>
 
       <div className="headlinerEventsContainer flex flex-col gap-10 max-md:gap-5 mb-20 px-24">
         <h2 className="text-4xl text-white font-body font-light py-12 flex justify-center items-center max-md:text-lg">

@@ -4,6 +4,7 @@ import EventList from "../components/EventsPage/EventList";
 import { useState } from "react";
 import type { EventCategory } from "../components/EventsPage/Filter";
 import { motion } from "motion/react";
+import CTASection from "../components/CTASection";
 
 const Events = () => {
   const [category, setCategory] = useState<EventCategory>("all");
@@ -28,6 +29,8 @@ const Events = () => {
           <EventList category={category} />
         </motion.div>
       </div>
+
+      <CTASection bgColor="#271b46" />
     </motion.div>
   );
 };

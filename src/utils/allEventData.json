@@ -1,114 +1,524 @@
 {
-    "events": [
-      {
-        "id": "ws-uiux-bootcamp",
-        "name": "UI/UX Bootcamp",
-        "category": "workshops",
-        "image": {
-          "src": "https://images.unsplash.com/photo-1559027615-cd4628902d4a",
-          "alt": "Students sketching wireframes on a whiteboard"
-        }
-        
-      },
-      {
-        "id": "ws-web3-basics",
-        "name": "Web3 Basics Workshop",
-        "category": "workshops",
-        "image": {
-          "src": "https://images.unsplash.com/photo-1639762681057-408e52192e55",
-          "alt": "Speaker presenting blockchain concepts"
-        }
-      },
-      {
-        "id": "game-fifa-night",
-        "name": "FIFA Night",
-        "category": "games",
-        "image": {
-          "src": "https://images.unsplash.com/photo-1605902711622-cfb43c4437d1",
-          "alt": "Game controller with a football game on screen"
-        }
-      },
-      {
-        "id": "game-valorant-showmatch",
-        "name": "Valorant Showmatch",
-        "category": "games",
-        "image": {
-          "src": "https://images.unsplash.com/photo-1598550880863-4e8aa3d0f9a8",
-          "alt": "Esports arena lights and monitors"
-        }
-      },
-      {
-        "id": "comp-hackathon-sprint",
-        "name": "Hackathon Sprint",
-        "category": "competitions",
-        "image": {
-          "src": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
-          "alt": "Developers working during hackathon"
-        }
-      },
-      {
-        "id": "comp-design-duel",
-        "name": "Design Duel",
-        "category": "competitions",
-        "image": {
-          "src": "https://images.unsplash.com/photo-1587614382346-4ec9e6b0c7b5",
-          "alt": "Two designers working side by side"
-        }
-      },
-      {
-        "id": "talk-future-of-ai",
-        "name": "Talk: Future of AI",
-        "category": "talks",
-        "image": {
-          "src": "https://images.unsplash.com/photo-1531746790731-6c087fecd65a",
-          "alt": "Microphone on stage with audience blurred"
-        }
-      },
-      {
-        "id": "talk-startup-stories",
-        "name": "Talk: Startup Stories",
-        "category": "talks",
-        "image": {
-          "src": "https://images.unsplash.com/photo-1556761175-4b46a572b786",
-          "alt": "Panel discussion with speakers"
-        }
-      },
-      {
-        "id": "other-open-mic",
-        "name": "Open Mic Night",
-        "category": "others",
-        "image": {
-          "src": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4",
-          "alt": "Spotlight on a microphone stand"
-        }
-      },
-      {
-        "id": "other-art-expo",
-        "name": "Art Expo Walkthrough",
-        "category": "others",
-        "image": {
-          "src": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
-          "alt": "Art gallery wall with framed pieces"
-        }
-      },
-      {
-        "id": "ws-react-crash-course",
-        "name": "React Crash Course",
-        "category": "workshops",
-        "image": {
-          "src": "https://images.unsplash.com/photo-1581276879432-15e50529f34b",
-          "alt": "Code editor on projector screen"
-        }
-      },
-      {
-        "id": "comp-code-golf",
-        "name": "Code Golf Challenge",
-        "category": "competitions",
-        "image": {
-          "src": "https://images.unsplash.com/photo-1517430816045-df4b7de11d1d",
-          "alt": "Hands typing fast on keyboard"
-        }
+  "events": [
+    {
+      "id": "comp-pearl-jam",
+      "name": "Pearl Jam",
+      "category": "competitions",
+      "description": "The ultimate college-level battle of the bands. Top bands from across the country compete with intense performances and blazing solos for the title.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1459749411177-287ce112a8bf",
+        "alt": "Rock band performing live on stage with red lighting"
       }
-    ]
-  }
-  
+    },
+    {
+      "id": "comp-solo-singing",
+      "name": "Solo Singing",
+      "category": "competitions",
+      "description": "A spotlight event for vocalists to display their artistic expression and vocal prowess in a competitive arena.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1516280440614-6697288d5d38",
+        "alt": "Close up of a microphone in a dimly lit room"
+      }
+    },
+    {
+      "id": "comp-solo-instrumental",
+      "name": "Solo Instrumental",
+      "category": "competitions",
+      "description": "A platform for individual musicians to exhibit mastery over their chosen instruments, from guitars to percussion.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1511379938547-c1f69419868d",
+        "alt": "Musician playing an acoustic guitar"
+      }
+    },
+    {
+      "id": "comp-nukkad-natak",
+      "name": "Nukkad Natak",
+      "category": "competitions",
+      "description": "A powerful street theatre competition where teams use performance as a voice for social expression and impact.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1533561339908-4171c6a85810",
+        "alt": "Street performers acting in a crowd"
+      }
+    },
+    {
+      "id": "comp-natya-shastra",
+      "name": "Natya Shastra",
+      "category": "competitions",
+      "description": "A celebration of live theatre, inviting artists to bring powerful stories to life through stagecraft and acting.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1507676184212-d03ab07a11d0",
+        "alt": "Dramatic lighting on a theatre stage"
+      }
+    },
+    {
+      "id": "comp-monoacting",
+      "name": "Monoacting",
+      "category": "competitions",
+      "description": "A showcase of individual talent where a single performer commands the stage through expression and storytelling.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212",
+        "alt": "Spotlight shining on a single person on stage"
+      }
+    },
+    {
+      "id": "ws-acting",
+      "name": "Acting Workshop",
+      "category": "workshops",
+      "description": "A hands-on space for performers of all levels to explore, refine, and express the art of acting and stage performance.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1522071820081-009f0129c71c",
+        "alt": "Group of people in a drama workshop circle"
+      }
+    },
+    {
+      "id": "game-charades",
+      "name": "Charades",
+      "category": "games",
+      "description": "A nostalgic game where players communicate only through expressive gestures to help their teammate guess movies.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1606092195730-5d7b9af1ef4d",
+        "alt": "Friends laughing and playing a guessing game"
+      }
+    },
+    {
+      "id": "comp-spicy-showdown",
+      "name": "The Spicy Showdown",
+      "category": "competitions",
+      "description": "A fiery challenge where participants race to devour spicy pani puris. Speed and endurance are key to winning this heat-packed showdown.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1563861826100-9cb868c62174",
+        "alt": "Close up of red chili peppers and spicy street food"
+      }
+    },
+    {
+      "id": "comp-lexicon-league",
+      "name": "Lexicon League",
+      "category": "competitions",
+      "description": "The ultimate word-game challenge filled with Wordles, crosswords, and puzzles that reward sharp vocabulary and logic.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1632059348695-9467727195c1",
+        "alt": "Scrabble tiles spelling out words"
+      }
+    },
+    {
+      "id": "comp-beyond-frames",
+      "name": "Beyond the Frames",
+      "category": "competitions",
+      "description": "A creative writing event where imagination takes the lead. Pick a prompt and craft a piece that reflects your unique voice.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1455390582262-044cdead277a",
+        "alt": "A pen resting on a handwritten journal"
+      }
+    },
+    {
+      "id": "comp-doomscroll",
+      "name": "Doomscroll Showdown",
+      "category": "competitions",
+      "description": "Unleash your inner Instagram commenter. We give you the content, you provide the funniest, wittiest comment section replies.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1611162617474-5b21e879e113",
+        "alt": "Person scrolling through social media on a smartphone"
+      }
+    },
+    {
+      "id": "comp-saptak",
+      "name": "Saptak",
+      "category": "competitions",
+      "description": "Indian Vocals competition offering a platform to explore Ragas, Talas, and a vast variety of moods in Indian Music.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1493225255756-d9584f8606e9",
+        "alt": "Silhouette of a singer with traditional vibes"
+      }
+    },
+    {
+      "id": "comp-aakara",
+      "name": "Aakara",
+      "category": "competitions",
+      "description": "A classical dance competition showcasing India’s rich cultural heritage through elegant expressions and postures.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad",
+        "alt": "Indian classical dancer in traditional attire"
+      }
+    },
+    {
+      "id": "ws-classical-production",
+      "name": "Classical Production Workshop",
+      "category": "workshops",
+      "description": "Learn to produce Indian classical music using digital tools (DAWs) and blend soulful Ragas with modern rhythmic patterns.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04",
+        "alt": "Music production software on a computer screen"
+      }
+    },
+    {
+      "id": "comp-echoes-unplugged",
+      "name": "Echoes Unplugged",
+      "category": "competitions",
+      "description": "An acoustic music event for teams to perform beautiful renditions of songs across any genre without electronic backing.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1525201548942-d8732f6617a0",
+        "alt": "Acoustic guitar leaning against a wall"
+      }
+    },
+    {
+      "id": "comp-rampage",
+      "name": "Rampage",
+      "category": "competitions",
+      "description": "A high-stakes fashion competition where participants set the ramp on fire with bold styling, confidence, and captivating walks.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1509631179647-0177331693ae",
+        "alt": "Fashion model walking down a runway"
+      }
+    },
+    {
+      "id": "comp-pinterest-outfit",
+      "name": "Pinterest Outfit Making",
+      "category": "competitions",
+      "description": "A fast-paced design face-off where teams decode a Pinterest moodboard and sketch an original outfit concept under pressure.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1512413314640-c368670b9687",
+        "alt": "Fashion sketches and fabric swatches on a table"
+      }
+    },
+    {
+      "id": "comp-bollywood-trivia",
+      "name": "Bollywood Trivia",
+      "category": "competitions",
+      "description": "The ultimate quiz for Hindi cinema lovers. Test your knowledge of movies, stars, and iconic moments.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1585647347384-2593bc35786b",
+        "alt": "Cinema reel and clapboard"
+      }
+    },
+    {
+      "id": "comp-daleel",
+      "name": "Daleel",
+      "category": "competitions",
+      "description": "A competitive Hindi debate event testing your oratory skills and ability to construct compelling arguments.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1475721027767-p74302942437",
+        "alt": "Microphone on a podium"
+      }
+    },
+    {
+      "id": "game-videobooth",
+      "name": "Videobooth",
+      "category": "games",
+      "description": "A dedicated videography service by the VFX Club to film your performances professionally instead of using phone recordings.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1524316972688-66258be1675b",
+        "alt": "Professional video camera setup"
+      }
+    },
+    {
+      "id": "game-360-booth",
+      "name": "360 Degree Booth",
+      "category": "games",
+      "description": "A high-speed rotating camera booth that captures 120fps slow-motion footage of you and your friends, edited instantly.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32",
+        "alt": "Camera lens reflecting lights"
+      }
+    },
+    {
+      "id": "comp-movies-memes",
+      "name": "Movies n Memes",
+      "category": "competitions",
+      "description": "A fun challenge testing absurd connections between niche movies and popular internet memes.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1531259683007-016a7b628fc3",
+        "alt": "Popcorn and movie tickets"
+      }
+    },
+    {
+      "id": "comp-heads-up",
+      "name": "Heads Up",
+      "category": "competitions",
+      "description": "The classic party game where you have to guess the word on your forehead based on your teammates' frantic clues.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1541560052-7eec2bc4a080",
+        "alt": "People laughing and having fun at a party"
+      }
+    },
+    {
+      "id": "comp-general-quiz",
+      "name": "General Quiz",
+      "category": "competitions",
+      "description": "An Open General Quiz hosted by Major Chandrakant Nair. Test your knowledge of every domain under the sun.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b",
+        "alt": "Quiz buzzer button"
+      }
+    },
+    {
+      "id": "comp-tlc-quiz",
+      "name": "TLC Quiz",
+      "category": "competitions",
+      "description": "Travel, Lifestyle, and Culture. A quiz for the fashionistas, the well-travelled, and the cultured.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800",
+        "alt": "Travel map with camera and sunglasses"
+      }
+    },
+    {
+      "id": "comp-brainrot-quiz",
+      "name": "Brainrot Quiz",
+      "category": "competitions",
+      "description": "Put your reel-scrolling skills to the test. A quiz featuring fresh memes and internet culture to see how deep the brainrot goes.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
+        "alt": "Person using a smartphone in the dark"
+      }
+    },
+    {
+      "id": "comp-sports-quiz",
+      "name": "Sports Quiz",
+      "category": "competitions",
+      "description": "From football and F1 to cricket and e-sports, this quiz tests the knowledge of the ultimate sports buffs.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211",
+        "alt": "Various sports balls on grass"
+      }
+    },
+    {
+      "id": "comp-anime-quiz",
+      "name": "The Anime Quiz",
+      "category": "competitions",
+      "description": "A quiz for the otaku culture. Questions covering anime, manga, and Japanese pop culture.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1623945037402-9a3d360f1c8e",
+        "alt": "Anime figurines and manga collection"
+      }
+    },
+    {
+      "id": "comp-myth-quiz",
+      "name": "The Myth Quiz",
+      "category": "competitions",
+      "description": "From Ramayana to Hercules, dive into ancient folklore and test your memory on the age of tales.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1599839575945-a9e5af0c3fa5",
+        "alt": "Ancient greek statue"
+      }
+    },
+    {
+      "id": "comp-mnm-quiz",
+      "name": "MnM Quiz",
+      "category": "competitions",
+      "description": "Movies and Music. Challenge your cinephile and melophile knowledge with questions on films and soundtracks.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1485846234645-a62644f84728",
+        "alt": "Vintage film camera and vinyl records"
+      }
+    },
+    {
+      "id": "comp-popcom-quiz",
+      "name": "PopCom Quiz",
+      "category": "competitions",
+      "description": "Pop and Comics. A quiz testing your ability to remember intricate details about the comicverse and superheroes.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe",
+        "alt": "Pile of comic books"
+      }
+    },
+    {
+      "id": "comp-rewind-quiz",
+      "name": "Rewind Quiz",
+      "category": "competitions",
+      "description": "A nostalgia trip back to the 2000s and 2010s. Questions based on things you heard and played with as a kid.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1550745165-9bc0b252726f",
+        "alt": "Retro cassette tapes"
+      }
+    },
+    {
+      "id": "comp-midnight-av",
+      "name": "Midnight AV",
+      "category": "competitions",
+      "description": "A multimedia quiz where every question has an image, sound, or video attached. Win food coupons!",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1535016120720-40c6874c3b1c",
+        "alt": "Projector beam in a dark room"
+      }
+    },
+    {
+      "id": "comp-retrospective",
+      "name": "Retrospective",
+      "category": "competitions",
+      "description": "A photography competition challenging creativity and storytelling. Turn moments into masterpieces.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32",
+        "alt": "Professional camera lens close up"
+      }
+    },
+    {
+      "id": "comp-who-nose",
+      "name": "Who Nose?",
+      "category": "competitions",
+      "description": "A chaotic GK-based game where you win by knowing the answer OR by making everyone laugh.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846",
+        "alt": "Clown nose or funny party props"
+      }
+    },
+    {
+      "id": "comp-haha-hunt",
+      "name": "Haha Hunt",
+      "category": "competitions",
+      "description": "Stand-up, skits, improv, or roast. You have 5 minutes on the clock to make the audience laugh.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1585672840545-d8aa5367675e",
+        "alt": "Microphone stand on a comedy club stage"
+      }
+    },
+    {
+      "id": "comp-whistleblower",
+      "name": "Whistleblower",
+      "category": "competitions",
+      "description": "An investigative journalism event. Uncover the truth behind a murder mystery in a race against time.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1453915007323-c91f61877d9c",
+        "alt": "Magnifying glass on a newspaper"
+      }
+    },
+    {
+      "id": "comp-magick-monsters",
+      "name": "Magick and Monsters",
+      "category": "competitions",
+      "description": "Action-packed, team-based RPG board game inspired by Dungeons & Dragons. Equip weapons, potions, and spells.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1610890716171-6b1c9f2c7158",
+        "alt": "Polyhedral dice for tabletop RPGs"
+      }
+    },
+    {
+      "id": "comp-around-the-world",
+      "name": "Around the World",
+      "category": "competitions",
+      "description": "A real-life RPG experience. Navigate through 6 themed rooms, interact with characters, and solve mini-games.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1",
+        "alt": "Compass on an old world map"
+      }
+    },
+    {
+      "id": "comp-pokemon-showdown",
+      "name": "Pokémon Showdown",
+      "category": "competitions",
+      "description": "A strategic battle for Pokémon trainers. Build your team and compete to be the very best.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1613771404721-c5a425040475",
+        "alt": "Playing cards or gaming setup"
+      }
+    },
+    {
+      "id": "comp-geoguessr",
+      "name": "Geoguessr",
+      "category": "competitions",
+      "description": "Test your geography skills by guessing locations from Google Street View imagery.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1524661135-423995f22d0b",
+        "alt": "World globe and laptop"
+      }
+    },
+    {
+      "id": "comp-3d-animation",
+      "name": "3D Animation",
+      "category": "competitions",
+      "description": "Design and render a 5-10 second 3D animation set within a visually stylized comic book environment.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1611162616475-46b635cb6868",
+        "alt": "3D wireframe model on computer screen"
+      }
+    },
+    {
+      "id": "comp-2d-animation",
+      "name": "2D Animation",
+      "category": "competitions",
+      "description": "Transform a comic panel into a dynamic scene. Animate your favorite artwork into a 5-10 second clip.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1626785774573-4b7993143a4d",
+        "alt": "Digital drawing tablet and stylus"
+      }
+    },
+    {
+      "id": "comp-reel-making",
+      "name": "Reel Making",
+      "category": "competitions",
+      "description": "Show us the fest through your lens. Vlog your day, edit the footage, and create a compelling Reel.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7",
+        "alt": "Smartphone recording video"
+      }
+    },
+    {
+      "id": "game-journal-booth",
+      "name": "Journal Booth",
+      "category": "games",
+      "description": "Craft a blank journal cover your own way and take home a personalised souvenir. All stationery provided.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1544816155-12df9643f363",
+        "alt": "Handmade journals and crafting supplies"
+      }
+    },
+    {
+      "id": "comp-tote-ally-yours",
+      "name": "Tote-ally Yours",
+      "category": "competitions",
+      "description": "A chill DIY event where you design your own tote bag. No rules, just creativity.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1597484661643-2f5fef640dd1",
+        "alt": "Canvas tote bag with paint brushes"
+      }
+    },
+    {
+      "id": "game-paint-with-puppies",
+      "name": "Paint With Puppies",
+      "category": "games",
+      "description": "A puppy therapy and painting experience. Relax, paint, and play with rescued shelter puppies.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1583337130417-3346a1be7dee",
+        "alt": "Cute puppy sitting near art supplies"
+      }
+    },
+    {
+      "id": "game-decked-out",
+      "name": "Decked Out",
+      "category": "games",
+      "description": "Get a custom trading card printed with your photo in it. Choose a template and become the main character.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1620332313866-e066a27a3365",
+        "alt": "Trading cards on a table"
+      }
+    },
+    {
+      "id": "comp-alfaaz",
+      "name": "Alfaaz",
+      "category": "competitions",
+      "description": "A Hindi Slam poetry competition where words weave magic and emotions flow freely.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3",
+        "alt": "Notebook with handwritten poetry"
+      }
+    },
+    {
+      "id": "comp-soulo",
+      "name": "Soul'o",
+      "category": "competitions",
+      "description": "1v1 Rep Your Style Dance Battle. No crews, no choreography, just freestyle dance and individual expression.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1547153760-18fc86324498",
+        "alt": "Street dancer freezing a move"
+      }
+    },
+    {
+      "id": "ws-in-motion",
+      "name": "In Motion, We Heal",
+      "category": "workshops",
+      "description": "A dance movement workshop to release stress and reconnect with yourself in a safe, inclusive space.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1506126613408-eca07ce68773",
+        "alt": "People doing yoga or movement therapy"
+      }
+    }
+  ]
+}

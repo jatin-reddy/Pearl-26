@@ -1,18 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+// 1. IMPORT THUMBNAILS: Low res (200px width), WebP format, for the grid
+const thumbGlob = import.meta.glob("../assets/gallery/*.{jpg,jpeg,png,webp}", {
+  eager: true,
+  query: { w: 200, format: "webp" },
+  import: "default",
+});
+
+// 2. IMPORT FULL SIZE: Original quality for the main card
+const fullGlob = import.meta.glob("../assets/gallery/*.{jpg,jpeg,png,webp}", {
+  eager: true,
+  import: "default",
+});
+
 interface GalleryItem {
   id: number;
-  src: string;
+  thumbnail: string;
+  full: string;
   alt: string;
 }
 
-const SOURCE_IMAGES: GalleryItem[] = Array.from({ length: 14 }).map((_, i) => ({
-  id: i,
-  src: `https://picsum.photos/seed/${i + 300}/500/500`,
-  alt: `Moment ${i + 1}`,
-}));
+// 3. MERGE THE LISTS: Match thumbnails to full images by file path
+const SOURCE_IMAGES: GalleryItem[] = Object.keys(thumbGlob).map((path, i) => {
+  return {
+    id: i,
+    thumbnail: thumbGlob[path] as string,
+    full: fullGlob[path] as string,
+    alt: `Gallery Image ${i + 1}`,
+  };
+});
 
 const CARD_COLORS = ["#fde047", "#FF80DF", "#7EE2FF", "#85E98C"];
 
@@ -35,11 +53,18 @@ const GallerySection: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [direction, setDirection] = useState<number>(0);
 
-  const gridTiles = Array(200).fill(SOURCE_IMAGES).flat();
+  // OPTIMIZATION: Memoize the grid so it doesn't re-calculate on every render.
+  // We also reduced the count. 80 repeats is usually enough to fill a large screen.
+  const gridTiles = useMemo(() => {
+    if (SOURCE_IMAGES.length === 0) return [];
+    // Calculate how many copies we need to reach approx 150 tiles total
+    const copies = Math.ceil(150 / SOURCE_IMAGES.length);
+    return Array(copies).fill(SOURCE_IMAGES).flat();
+  }, []);
+
   const getSmartDirection = (newIndex: number, oldIndex: number) => {
     const length = SOURCE_IMAGES.length;
     let dir = newIndex > oldIndex ? 1 : -1;
-
     if (Math.abs(newIndex - oldIndex) > length / 2) {
       dir *= -1;
     }
@@ -48,7 +73,6 @@ const GallerySection: React.FC = () => {
 
   const handleGridClick = (sourceIndex: number) => {
     if (sourceIndex === currentIndex) return;
-
     const newDir = getSmartDirection(sourceIndex, currentIndex);
     setDirection(newDir);
     setCurrentIndex(sourceIndex);
@@ -67,16 +91,28 @@ const GallerySection: React.FC = () => {
   };
 
   const activeColor = CARD_COLORS[currentIndex % CARD_COLORS.length];
+
   const slideVariants: Variants = {
     enter: (dir: number) => ({ x: dir > 0 ? "100%" : "-100%", opacity: 1 }),
     center: { x: 0, opacity: 1 },
     exit: (dir: number) => ({ x: dir < 0 ? "100%" : "-100%", opacity: 1 }),
   };
 
+  if (SOURCE_IMAGES.length === 0) {
+    return (
+      <div className="p-10 text-center">No images found in assets/gallery</div>
+    );
+  }
+
   return (
     <div className="relative w-full h-[85vh] min-h-[600px] bg-[#65A8C4] overflow-hidden flex flex-col font-sans">
+      {/* BACKGROUND GRID */}
       <div className="absolute top-0 -left-10 -right-10 -bottom-20 overflow-hidden">
-        <div className="flex flex-wrap content-start gap-2 w-full h-full">
+        {/* 'contain-strict' helps browser performance significantly here */}
+        <div
+          className="flex flex-wrap content-start gap-2 w-full h-full"
+          style={{ contentVisibility: "auto" }}
+        >
           {gridTiles.map((tile, gridIndex) => {
             const sourceIndex = gridIndex % SOURCE_IMAGES.length;
 
@@ -96,15 +132,19 @@ const GallerySection: React.FC = () => {
                 className={`
                   relative h-20 md:h-28 ${widthClass} flex-auto
                   cursor-pointer overflow-hidden rounded-[2px]
-                  transition-all duration-300 ease-out
+                  /* OPTIMIZATION: Only animate transform, not 'all' */
+                  transition-transform duration-300 ease-out
                   hover:scale-110 hover:z-20 hover:shadow-xl
                 `}
               >
                 <img
-                  src={tile.src}
+                  // USE THE THUMBNAIL HERE
+                  src={tile.thumbnail}
                   alt={tile.alt}
-                  className="w-full h-full object-cover opacity-100 grayscale hover:grayscale-0 transition-all duration-300"
+                  // OPTIMIZATION: Decode async prevents UI freeze
+                  decoding="async"
                   loading="lazy"
+                  className="w-full h-full object-cover opacity-100 grayscale hover:grayscale-0 transition-[filter] duration-300"
                 />
               </div>
             );
@@ -118,14 +158,14 @@ const GallerySection: React.FC = () => {
           {/* Nav Buttons */}
           <button
             onClick={handlePrev}
-            className="absolute -left-2 md:-left-12 top-1/2 -translate-y-1/2 z-30 bg-white border-2 border-black rounded-full p-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[-40%] hover:shadow-none transition-all active:scale-95"
+            className="absolute -left-2 md:-left-12 top-1/2 -translate-y-1/2 z-30 bg-white border-2 border-black p-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[-40%] hover:shadow-none transition-all active:scale-95"
           >
             <ChevronLeft className="w-6 h-6 text-black" strokeWidth={3} />
           </button>
 
           <button
             onClick={handleNext}
-            className="absolute -right-2 md:-right-12 top-1/2 -translate-y-1/2 z-30 bg-white border-2 border-black rounded-full p-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[-40%] hover:shadow-none transition-all active:scale-95"
+            className="absolute -right-2 md:-right-12 top-1/2 -translate-y-1/2 z-30 bg-white border-2 border-black p-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[-40%] hover:shadow-none transition-all active:scale-95"
           >
             <ChevronRight className="w-6 h-6 text-black" strokeWidth={3} />
           </button>
@@ -154,15 +194,16 @@ const GallerySection: React.FC = () => {
                   className="absolute inset-0 w-full h-full"
                 >
                   <img
-                    src={`https://picsum.photos/seed/${currentIndex + 300}/800/600`}
-                    alt={SOURCE_IMAGES[currentIndex].alt}
+                    // USE THE FULL SIZE IMAGE HERE
+                    src={SOURCE_IMAGES[currentIndex]?.full}
+                    alt={SOURCE_IMAGES[currentIndex]?.alt || "Gallery Image"}
                     className="w-full h-full object-cover"
+                    decoding="async"
                   />
                 </motion.div>
               </AnimatePresence>
             </div>
 
-            {/* Right Sidebar */}
             <DotPattern color={activeColor} />
           </div>
         </div>

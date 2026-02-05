@@ -60,7 +60,7 @@ function EventCard({ event, isDesktop }: EventCardProps) {
             className={`relative ${styles.bg} border-2 border-black px-4 py-2 shadow-[4px_4px_0px_rgba(0,0,0,1)] flex items-center gap-3 transition-transform duration-300 group-hover:-translate-y-1 group-hover:-translate-x-1`}
           >
             <div className="absolute inset-0 opacity-30 pointer-events-none bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:3px_3px]" />
-            <h3 className="relative font-pearl text-black text-lg md:text-xl uppercase leading-none tracking-wide break-words">
+            <h3 className="relative font-rumba text-black text-lg md:text-xl uppercase leading-none tracking-wide break-words">
               {event.name}
             </h3>
             <svg

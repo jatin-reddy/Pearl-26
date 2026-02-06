@@ -33,7 +33,7 @@ interface Artist {
 
 const ArtistCard = ({
   artist,
-  isMain = false,
+  isMain: _isMain = false,
 }: {
   artist: Artist;
   isMain?: boolean;

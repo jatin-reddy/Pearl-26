@@ -336,7 +336,7 @@ const HeadlinerEvents = () => {
           </div>
         </main>
         {/* 4. Footer Controls */}
-        <footer className="relative z-20 px-8 md:px-16 pb-12 w-full pt-8">
+        <footer className="relative z-20 px-8 md:px-16 pb-12 w-full">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-0">
             {/* Buttons */}
             <div className="flex gap-6">

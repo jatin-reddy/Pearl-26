@@ -24,9 +24,21 @@ const navLinks: NavLink[] = [
 ];
 
 const socialLinks = [
-  { name: "Facebook", icon: <FaFacebookF />, href: "#" },
-  { name: "Instagram", icon: <FaInstagram />, href: "#" },
-  { name: "YouTube", icon: <FaYoutube />, href: "#" },
+  {
+    name: "Facebook",
+    icon: <FaFacebookF />,
+    href: "https://www.facebook.com/bitspearl",
+  },
+  {
+    name: "Instagram",
+    icon: <FaInstagram />,
+    href: "https://www.instagram.com/pearl.bitsh/",
+  },
+  {
+    name: "YouTube",
+    icon: <FaYoutube />,
+    href: "https://www.youtube.com/@pearlbitspilanihyderabad7969",
+  },
   { name: "Twitter", icon: <FaTwitter />, href: "#" },
 ];
 
@@ -113,12 +125,10 @@ const NavMenu = () => {
   useEffect(() => {
     if (isOpen) {
       lenis?.stop();
-
       document.documentElement.style.overflow = "hidden";
       document.body.style.overflow = "hidden";
     } else {
       lenis?.start();
-
       document.documentElement.style.overflow = "";
       document.body.style.overflow = "";
     }
@@ -187,19 +197,19 @@ const NavMenu = () => {
             <div className="flex flex-col md:flex-row h-full">
               <div
                 data-lenis-prevent
-                className="flex-1 flex flex-col justify-start pt-32 md:pt-0 md:justify-center px-8 md:px-24 md:border-r md:border-white/20 overflow-y-auto no-scrollbar overscroll-contain"
+                className="flex-1 flex flex-col justify-center px-8 md:px-24 md:border-r md:border-white/20 overflow-y-auto no-scrollbar overscroll-contain max-h-full"
               >
                 <motion.div
                   variants={containerVars}
                   initial="initial"
                   animate="open"
                   exit="initial"
-                  className="flex flex-col gap-6 md:gap-12 pb-10"
+                  className="flex flex-col gap-6 md:gap-8 lg:gap-10 xl:gap-12 py-8"
                 >
                   {navLinks.map((link) => (
                     <div
                       key={link.id}
-                      className="overflow-hidden shrink-0 pt-4"
+                      className="overflow-hidden shrink-0 pt-2"
                     >
                       <motion.div variants={linkVars}>
                         <Link
@@ -207,11 +217,11 @@ const NavMenu = () => {
                           onClick={toggleMenu}
                           className="group flex items-baseline gap-4 md:gap-8 text-white hover:text-black transition-colors duration-300"
                         >
-                          <span className="text-lg md:text-3xl font-grotesk font-bold opacity-50 group-hover:opacity-100 transition-opacity">
+                          <span className="text-lg md:text-xl xl:text-3xl font-grotesk font-bold opacity-50 group-hover:opacity-100 transition-opacity">
                             {link.id}
                           </span>
                           <span
-                            className="font-pearl text-5xl sm:text-6xl md:text-8xl uppercase tracking-wide leading-[0.85]"
+                            className="font-pearl text-5xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl uppercase tracking-wide leading-[0.85]"
                             style={{
                               textShadow: "3px 3px 0px rgba(0,0,0,0.5)",
                             }}
@@ -225,7 +235,7 @@ const NavMenu = () => {
                 </motion.div>
               </div>
 
-              <div className="shrink-0 md:flex-1 flex flex-col items-center justify-end pb-8 md:pb-0 md:justify-center md:bg-transparent">
+              <div className="shrink-0 md:flex-1 flex flex-col items-center justify-end pb-8 md:pb-0 md:justify-center md:bg-transparent min-h-[100px]">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -239,7 +249,7 @@ const NavMenu = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       title={social.name}
-                      className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/10 backdrop-blur-md border-2 border-white/20 flex items-center justify-center text-white transition-transform duration-300 hover:-translate-y-1 cursor-pointer text-xl md:text-2xl"
+                      className="w-12 h-12 md:w-14 md:h-14 xl:w-16 xl:h-16 rounded-full bg-white/10 backdrop-blur-md border-2 border-white/20 flex items-center justify-center text-white transition-transform duration-300 hover:-translate-y-1 cursor-pointer text-xl md:text-2xl"
                       style={{ boxShadow: "4px 4px 0px rgba(0,0,0,0.1)" }}
                     >
                       {social.icon}

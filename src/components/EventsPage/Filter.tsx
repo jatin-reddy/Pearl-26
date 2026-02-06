@@ -2,24 +2,41 @@ import { useEffect, useRef, useState } from "react";
 
 export type EventCategory =
   | "all"
-  | "workshops"
-  | "games"
-  | "competitions"
-  | "talks"
-  | "others";
+  | "art"
+  | "comedy"
+  | "culinary"
+  | "dance"
+  | "drama"
+  | "fashion"
+  | "funevents"
+  | "gaming"
+  | "literature"
+  | "movies"
+  | "music"
+  | "photography"
+  | "quiz";
 
 type FilterProps = {
   value: EventCategory;
   onChange: (next: EventCategory) => void;
 };
 
+// 14 Categories total
 const CATEGORIES: { key: EventCategory; label: string }[] = [
   { key: "all", label: "All" },
-  { key: "workshops", label: "Workshops" },
-  { key: "games", label: "Games" },
-  { key: "competitions", label: "Competitions" },
-  { key: "talks", label: "Talks" },
-  { key: "others", label: "Others" },
+  { key: "art", label: "Art" },
+  { key: "comedy", label: "Comedy" },
+  { key: "culinary", label: "Culinary" },
+  { key: "dance", label: "Dance" },
+  { key: "drama", label: "Drama" },
+  { key: "fashion", label: "Fashion" },
+  { key: "funevents", label: "Fun Events" },
+  { key: "gaming", label: "Gaming" },
+  { key: "literature", label: "Literature" },
+  { key: "movies", label: "Movies" },
+  { key: "music", label: "Music" },
+  { key: "photography", label: "Photography" },
+  { key: "quiz", label: "Quiz" },
 ];
 
 function Filter({ value, onChange }: FilterProps) {
@@ -49,8 +66,8 @@ function Filter({ value, onChange }: FilterProps) {
   }, []);
 
   return (
-    <nav className="w-full px-4 md:px-24 pt-24 pb-12">
-      {/* Mobile: custom dropdown */}
+    <nav className="w-full px-4 md:px-10 pt-24 pb-12">
+      {/* --- MOBILE: DROPDOWN (Unchanged) --- */}
       <div className="flex justify-center md:hidden">
         <div className="relative w-full max-w-xs">
           <button
@@ -81,7 +98,7 @@ function Filter({ value, onChange }: FilterProps) {
                 "absolute left-0 right-0 mt-3 z-50",
                 "bg-white border-2 border-black",
                 "shadow-[6px_6px_0_0_rgba(0,0,0,1)]",
-                "overflow-hidden",
+                "max-h-[60vh] overflow-y-auto",
               ].join(" ")}
             >
               {CATEGORIES.map((c) => {
@@ -114,8 +131,11 @@ function Filter({ value, onChange }: FilterProps) {
         </div>
       </div>
 
-      {/* md and up: buttons row (unchanged) */}
-      <div className="hidden md:flex flex-wrap gap-4 items-center justify-center">
+      {/* --- DESKTOP: 2 ROWS --- */}
+      {/* md:grid-cols-5 = 3 rows on tablets/small laptops
+         lg:grid-cols-7 = Exact 2 rows (7 items per row) on standard desktops 
+      */}
+      <div className="hidden md:grid md:grid-cols-5 lg:grid-cols-7 gap-y-4 gap-x-3 items-center justify-center max-w-6xl mx-auto">
         {CATEGORIES.map((c) => {
           const active = value === c.key;
           return (
@@ -123,11 +143,12 @@ function Filter({ value, onChange }: FilterProps) {
               key={c.key}
               type="button"
               onClick={() => onChange(c.key)}
+              // Added 'w-full' so they fill their grid slot evenly
               className={[
-                "px-5 py-2 font-body tracking-wide border-2 transition",
+                "w-full px-2 py-2 text-sm uppercase font-bold tracking-widest border-2 transition truncate",
                 active
-                  ? "bg-[#F3D300] text-black border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)]"
-                  : "bg-transparent text-white border-white/70 hover:border-white hover:bg-white/10",
+                  ? "bg-[#F3D300] text-black border-black shadow-[3px_3px_0_0_rgba(0,0,0,1)] -translate-y-1"
+                  : "bg-transparent text-white border-white/40 hover:border-white hover:bg-white/10",
               ].join(" ")}
             >
               {c.label}

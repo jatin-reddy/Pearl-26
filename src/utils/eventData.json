@@ -1,44 +1,94 @@
- {
-    "headlinerEvents": [
-      {
-        "id": "pearl-opening-night-2026",
-        "title": "Pearl Opening Night",
-        "description": "Kick off Pearl with a high-energy opening ceremony featuring performances, showcases, and announcements.",
-        "ctaLabel": "Learn More",
-        "image": {
-          "src": "/images/events/opening-night.jpg",
-          "alt": "Stage lights and crowd during the opening night"
-        }
+{
+  "headlinerEvents": [
+    {
+      "id": "hl-kaleidoscope",
+      "number": "01",
+      "title": "KALEIDOSCOPE",
+      "description": "Frames that speak. A national short film battle where storytellers weave cinematic magic around a central theme.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1478720568477-152d9b164e63",
+        "alt": "Camera film reel and cinema concept"
       },
-      {
-        "id": "battle-of-bands-2026",
-        "title": "Battle of the Bands",
-        "description": "Top campus bands compete live. Expect loud riffs, big vocals, and bigger crowd energy.",
-        "ctaLabel": "Get Pass",
-        "image": {
-          "src": "/images/events/battle-of-bands.jpg",
-          "alt": "Band performing on an outdoor stage"
-        }
-      },
-      {
-        "id": "esports-showdown-2026",
-        "title": "Esports Showdown",
-        "description": "A competitive gaming tournament with live casting, finals on the big screen, and audience challenges.",
-        "ctaLabel": "Register",
-        "image": {
-          "src": "/images/events/esports-showdown.jpg",
-          "alt": "Gaming setup with keyboards and monitors"
-        }
-      },
-      {
-        "id": "cultural-night-2026",
-        "title": "Cultural Night",
-        "description": "A celebration of traditions through dance, music, and fashion—ending with a grand finale act.",
-        "ctaLabel": "See Lineup",
-        "image": {
-          "src": "/images/events/cultural-night.jpg",
-          "alt": "Performers in traditional attire on stage"
-        }
+      "styles": {
+        "baseColor": "bg-[#E5E5E5]",
+        "stroke": "#22D3EE",
+        "boxColor": "bg-[#F0ABFC]"
       }
-    ]
-  }
+    },
+    {
+      "id": "hl-terpsichore",
+      "number": "02",
+      "title": "TERPSICHORE",
+      "description": "Sync. Rhythm. Rebellion. The ultimate western group dance showdown where top crews battle for dominance.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1535525153412-5a42439a210d",
+        "alt": "Hip hop dancers performing on street"
+      },
+      "styles": {
+        "baseColor": "bg-[#E5E5E5]",
+        "stroke": "#22D3EE",
+        "boxColor": "bg-[#F0ABFC]"
+      }
+    },
+    {
+      "id": "hl-haha-hunt",
+      "number": "03",
+      "title": "HAHA HUNT",
+      "description": "The hunt for the next comic genius. Armed with just a mic, performers battle to be the last one laughing.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1590373739269-1c9c720b080b",
+        "alt": "Microphone on a dark stage for comedy"
+      },
+      "styles": {
+        "baseColor": "bg-[#E5E5E5]",
+        "stroke": "#22D3EE",
+        "boxColor": "bg-[#F0ABFC]"
+      }
+    },
+    {
+      "id": "hl-till-deaf",
+      "number": "04",
+      "title": "TILL DEAF DO WE PART",
+      "description": "Amps cranked to eleven. The country's best semi-pro bands collide in a high-voltage sonic battle.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745",
+        "alt": "DJ and crowd at a high energy music festival"
+      },
+      "styles": {
+        "baseColor": "bg-[#E5E5E5]",
+        "stroke": "#22D3EE",
+        "boxColor": "bg-[#F0ABFC]"
+      }
+    },
+    {
+      "id": "hl-glitterati",
+      "number": "05",
+      "title": "GLITTERATI",
+      "description": "High fashion meets high fantasy. A runway spectacle of glamour, mystique, and ethereal elegance.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1509631179647-0177331693ae",
+        "alt": "Fashion model walking down a runway"
+      },
+      "styles": {
+        "baseColor": "bg-[#E5E5E5]",
+        "stroke": "#22D3EE",
+        "boxColor": "bg-[#F0ABFC]"
+      }
+    },
+    {
+      "id": "hl-nukkad-natak",
+      "number": "06",
+      "title": "NUKKAD NATAK",
+      "description": "The street is the stage. Raw energy and bold scripts echo through the crowd in this battle of voices.",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1468234854285-0af6d0c73d9e",
+        "alt": "Crowd of people gathered in a street"
+      },
+      "styles": {
+        "baseColor": "bg-[#E5E5E5]",
+        "stroke": "#22D3EE",
+        "boxColor": "bg-[#F0ABFC]"
+      }
+    }
+  ]
+}

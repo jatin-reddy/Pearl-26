@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
 import MovingTape from "./Tape";
 
-import armaanMalik from "../assets/artistimages/Armaan Malik.jpg";
+import armaanMalik from "../assets/artistimages/Armaan Malik.jpeg";
 import mithoon from "../assets/artistimages/Mithoon.jpg";
 import raftaar from "../assets/artistimages/Raftaar.jpg";
 import shreyaGhoshal from "../assets/artistimages/Shreya Ghoshal.jpeg";
@@ -183,12 +183,12 @@ const PreviousArtists = () => {
 
   return (
     <>
-      <div className="relative w-full min-h-screen h-auto bg-[#DE70C3] text-white overflow-x-hidden flex flex-col font-sans py-10 md:py-20">
+      <div className="relative w-full min-h-screen h-auto bg-[#0E0B14] text-white overflow-x-hidden flex flex-col font-sans py-10 md:py-20">
         {/* Section Heading */}
         <SectionHeading
           text1="PREVIOUS"
           text2="ARTISTS"
-          text2Color="text-[#9A0274]"
+          text2Color="text-[#d946ef]"
         />
 
         {/* The Carousel */}
@@ -256,11 +256,10 @@ const PreviousArtists = () => {
         {/* Footer with Buttons and Progress Line */}
         <footer className="relative z-20 px-8 md:px-16 pb-12 w-full pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-0">
-            {/* Buttons */}
             <div className="flex gap-6">
               <button
                 onClick={prevSlide}
-                className="w-16 h-16 bg-[#9A0274] text-black flex items-center justify-center hover:brightness-110 transition-all font-bold shadow-[6px_6px_0px_#000000] active:shadow-none active:translate-x-[6px] active:translate-y-[6px]"
+                className="w-16 h-16 bg-[#22D3EE] text-white flex items-center justify-center hover:brightness-110 transition-all font-bold shadow-[6px_6px_0px_white] active:shadow-none active:translate-x-[6px] active:translate-y-[6px]"
               >
                 <svg
                   width="32"
@@ -275,7 +274,7 @@ const PreviousArtists = () => {
               </button>
               <button
                 onClick={nextSlide}
-                className="w-16 h-16 bg-[#FFFFFF] text-[#000000] flex items-center justify-center hover:brightness-95 transition-all font-bold shadow-[6px_6px_0px_#000000] active:shadow-none active:translate-x-[6px] active:translate-y-[6px]"
+                className="w-16 h-16 bg-[#F0ABFC] text-white flex items-center justify-center hover:brightness-110 transition-all font-bold shadow-[6px_6px_0px_white] active:shadow-none active:translate-x-[6px] active:translate-y-[6px]"
               >
                 <svg
                   width="32"
@@ -290,13 +289,13 @@ const PreviousArtists = () => {
               </button>
             </div>
 
-            {/*Progress line animation*/}
-            <div className="flex-1 mx-16 h-[1px] bg-black/30 relative">
+            <div className="flex-1 mx-16 h-[1px] bg-white/20 relative">
               <motion.div
-                className="absolute top-0 bottom-0 left-0 bg-black h-full shadow-[0_0_10px_rgba(0,0,0,0.5)]"
-                initial={{ width: "0%" }}
+                className="absolute top-0 bottom-0 left-0 bg-[#22D3EE] h-full shadow-[0_0_10px_rgba(34,211,238,0.5)]"
+                initial={false}
                 animate={{
-                  width: `${(((Math.abs(positionIndex) % ARTISTS.length) + 1) / ARTISTS.length) * 100}%`,
+                  // Correctly maps 0, 1, 2 to 33.3%, 66.6%, 100%
+                  width: `${((getArtistIndex(positionIndex) + 1) / ARTISTS.length) * 100}%`,
                 }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
               />

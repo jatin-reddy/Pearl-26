@@ -1,16 +1,8 @@
 import { useState, useRef } from "react";
 import { useScroll } from "motion/react";
 import SectionHeading from "../SectionHeading";
-import eventData from "../../utils/eventData.json";
+import { eventData } from "../../utils/eventData";
 import MovingTape from "../Tape";
-
-type HeadlinerEvent = {
-  id: string;
-  title: string;
-  description: string;
-  ctaLabel?: string;
-  image?: { src: string; alt: string };
-};
 
 function Header() {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -20,8 +12,7 @@ function Header() {
     offset: ["start end", "end start"],
   });
 
-  const headlinerEvents =
-    (eventData as { headlinerEvents: HeadlinerEvent[] }).headlinerEvents ?? [];
+  const headlinerEvents = eventData.headlinerEvents;
 
   const [activeEventIndex, setActiveEventIndex] = useState(0);
 
@@ -121,7 +112,7 @@ function Header() {
             </div>
 
             <div className="eventDetails flex flex-col gap-6 w-[400px] max-md:px-10 max-md:items-center">
-              <h3 className="relative text-3xl max-md:text-lg font-bold font-pearl font-stretch-semi-expanded">
+              <h3 className="relative text-3xl max-md:text-lg font-bold font-rumba font-stretch-semi-expanded">
                 <span className="absolute left-0 top-0 translate-y-[6px] text-black tracking-wider select-none pointer-events-none">
                   {activeEvent.title}
                 </span>

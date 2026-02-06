@@ -48,7 +48,7 @@ const CTASection: React.FC<ComicCTAProps> = ({
             href="https://www.unifest.in/fests/60?fest=pearl-2026"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-10 py-5 text-xl md:text-2xl bg-[#E56399] text-white font-black uppercase tracking-tighter border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all active:translate-x-1 active:translate-y-1 active:shadow-none hover:-translate-y-1"
+            className="inline-block px-4 py-2 text-sm md:px-6 md:py-4 md:text-2xl bg-[#E56399] text-white font-bold uppercase tracking-widest border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-150 hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
           >
             Register Now
           </a>

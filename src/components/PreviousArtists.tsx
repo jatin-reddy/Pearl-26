@@ -6,7 +6,7 @@ import MovingTape from "./Tape";
 import armaanMalik from "../assets/artistimages/Armaan Malik.jpg";
 import mithoon from "../assets/artistimages/Mithoon.jpg";
 import raftaar from "../assets/artistimages/Raftaar.jpg";
-import shreyaGhoshal from "../assets/artistimages/Shreya Ghoshal.jpg";
+import shreyaGhoshal from "../assets/artistimages/Shreya Ghoshal.jpeg";
 import sunidhiChauhan from "../assets/artistimages/Sunidhi Chauhan.jpg";
 
 const ARTISTS = [
@@ -77,43 +77,7 @@ const ArtistCard = ({
           }}
         />
 
-        {/* Ben-Day Dots - Cyan Layer */}
-        <div
-          className={`absolute inset-0 pointer-events-none transition-opacity duration-400 ${
-            isHovered ? "opacity-100" : "opacity-0"
-          }`}
-          style={{
-            backgroundImage: `radial-gradient(circle, rgba(0, 174, 239, 0.5) 1.8px, transparent 1.8px)`,
-            backgroundSize: "6px 6px",
-            mixBlendMode: "multiply",
-          }}
-        />
-
-        {/* Ben-Day Dots - Magenta Layer (offset) */}
-        <div
-          className={`absolute inset-0 pointer-events-none transition-opacity duration-400 ${
-            isHovered ? "opacity-100" : "opacity-0"
-          }`}
-          style={{
-            backgroundImage: `radial-gradient(circle, rgba(236, 0, 140, 0.45) 1.8px, transparent 1.8px)`,
-            backgroundSize: "6px 6px",
-            backgroundPosition: "3px 0px",
-            mixBlendMode: "multiply",
-          }}
-        />
-
-        {/* Ben-Day Dots - Yellow Layer (different offset) */}
-        <div
-          className={`absolute inset-0 pointer-events-none transition-opacity duration-400 ${
-            isHovered ? "opacity-100" : "opacity-0"
-          }`}
-          style={{
-            backgroundImage: `radial-gradient(circle, rgba(255, 242, 0, 0.4) 1.8px, transparent 1.8px)`,
-            backgroundSize: "6px 6px",
-            backgroundPosition: "0px 3px",
-            mixBlendMode: "multiply",
-          }}
-        />
+        <div className="absolute inset-0 opacity-10 z-10 pointer-events-none bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:4px_4px]" />
 
         {/* Artist Name Overlay */}
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-4 md:p-6">

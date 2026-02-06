@@ -1,55 +1,283 @@
 import SectionHeading from "./SectionHeading";
 import MovingTape from "./Tape";
 
-const ProShows = () => {
-    return (
-        <>
-            <section className="relative w-full min-h-screen h-auto bg-[#323132] text-white overflow-x-hidden flex flex-col font-sans py-10 md:py-20">
+import jonita from "../assets/artistimages/jonita.jpeg";
+import seedhemaut from "../assets/artistimages/sm.jpeg";
+import mohit from "../assets/artistimages/mohit.jpeg";
+import { motion } from "motion/react";
+import { useCallback, useEffect, useState } from "react";
 
-                {/* Section Heading*/}
-                <SectionHeading
-                    text1="OUR"
-                    text2="PROSHOWS"
-                    ghostText="OUR PROSHOWS"
-                    text1Color="text-white"
-                    text2Color="text-[#22D3EE]"
-                />
+const ARTISTS = [
+  {
+    id: 1,
+    name: "Jonita Gandhi",
+    image: jonita,
+  },
+  {
+    id: 2,
+    name: "Mohit Chauhan",
+    image: mohit,
+  },
+  {
+    id: 3,
+    name: "Seedhe Maut",
+    image: seedhemaut,
+  },
+];
 
-                {/* Content area */}
-                <main className="relative flex-1 min-h-[500px] md:min-h-[750px] flex items-center justify-center w-full overflow-hidden">
+interface Artist {
+  id: number;
+  name: string;
+  image: string;
+}
 
-                    {/* Comic placeholder panel */}
-                    <div className="relative w-full max-w-6xl mx-auto px-6">
-                        <div className="relative mx-auto w-full md:max-w-[900px]">
+const ArtistCard = ({
+  artist,
+  isMain: _isMain = false,
+}: {
+  artist: Artist;
+  isMain?: boolean;
+}) => {
+  const [isHovered, setIsHovered] = useState(false);
 
-                            <div
-                                className="bg-[#E5E5E5] border-4 border-[#22D3EE] p-6 md:p-12 w-full"
-                                style={{
-                                    aspectRatio: '2044 / 1108',
-                                }}
-                            >
-                                {/* placeholder for comic panel*/}
-                                <div className="flex items-center justify-center h-full">
-                                    <p
-                                        className="font-poppins text-black text-center font-medium"
-                                        style={{
-                                            fontSize: 'clamp(16px, 1.25vw, 20px)',
-                                        }}
-                                    >
-                                        Similar to brochure, the 3<br />
-                                        artists in COMMON comic<br />
-                                        panel
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+  return (
+    <div
+      className="relative w-full h-full flex flex-col items-center justify-center transition-all duration-500"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Artist Image Card */}
+      <div className="relative w-full h-full overflow-hidden bg-[#E5E5E5] border-4 border-white shadow-lg">
+        <img
+          src={artist.image}
+          alt={artist.name}
+          className="w-full h-full object-cover transition-all duration-500"
+          style={{
+            filter: isHovered
+              ? "contrast(1.2) saturate(0.8)"
+              : "contrast(1) saturate(1)",
+          }}
+        />
 
-                </main>
-            </section>
-            <MovingTape />
-        </>
-    );
+        <div className="absolute inset-0 opacity-10 z-10 pointer-events-none bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:4px_4px]" />
+
+        {/* Artist Name Overlay */}
+      </div>
+    </div>
+  );
 };
 
-export default ProShows;
+// ... (Variants remain the same) ...
+const imageVariants = {
+  center: {
+    x: "0%",
+    scale: 1,
+    zIndex: 10,
+    opacity: 1,
+    filter: "grayscale(0%)",
+  },
+  left1: {
+    x: "-125%",
+    scale: 0.8,
+    zIndex: 5,
+    opacity: 0.7,
+    filter: "grayscale(10%)",
+  },
+  left2: {
+    x: "-250%",
+    scale: 0.6,
+    zIndex: 1,
+    opacity: 0.4,
+    filter: "grayscale(20%)",
+  },
+  right1: {
+    x: "125%",
+    scale: 0.8,
+    zIndex: 5,
+    opacity: 0.7,
+    filter: "grayscale(10%)",
+  },
+  right2: {
+    x: "250%",
+    scale: 0.6,
+    zIndex: 1,
+    opacity: 0.4,
+    filter: "grayscale(20%)",
+  },
+};
+
+const Proshows = () => {
+  const [positionIndex, setPositionIndex] = useState(0);
+  const [isShrinking, setIsShrinking] = useState(false);
+
+  const handleSlideChange = useCallback(
+    (direction: "next" | "prev") => {
+      if (isShrinking) return;
+
+      setIsShrinking(true);
+
+      setTimeout(() => {
+        setPositionIndex((prev) =>
+          direction === "next" ? prev + 1 : prev - 1,
+        );
+
+        setTimeout(() => {
+          setIsShrinking(false);
+        }, 500);
+      }, 200);
+    },
+    [isShrinking],
+  );
+
+  const nextSlide = useCallback(
+    () => handleSlideChange("next"),
+    [handleSlideChange],
+  );
+  const prevSlide = useCallback(
+    () => handleSlideChange("prev"),
+    [handleSlideChange],
+  );
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") nextSlide();
+      if (e.key === "ArrowLeft") prevSlide();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [nextSlide, prevSlide]);
+
+  const getArtistIndex = (idx: number) => {
+    return ((idx % ARTISTS.length) + ARTISTS.length) % ARTISTS.length;
+  };
+
+  return (
+    <>
+      <div className="relative w-full min-h-screen h-auto bg-[#0E0B14] text-white overflow-x-hidden flex flex-col font-sans py-10 md:py-20">
+        <SectionHeading
+          text1="Our"
+          text2="Proshows"
+          text2Color="text-[#d946ef]"
+        />
+
+        <main className="relative flex-1 min-h-[500px] md:min-h-[750px] flex items-center justify-center w-full overflow-hidden">
+          <div className="relative w-full h-[500px] md:h-[750px] flex items-center justify-center text-center">
+            {[-2, -1, 0, 1, 2].map((offset) => {
+              const idx = positionIndex + offset;
+              const artistIndex = getArtistIndex(idx);
+
+              let pos = "center";
+              if (offset === -1) pos = "left1";
+              else if (offset === -2) pos = "left2";
+              else if (offset === 1) pos = "right1";
+              else if (offset === 2) pos = "right2";
+
+              // @ts-expect-error - indexing strictly controlled by pos logic
+              const targetVariant = imageVariants[pos];
+
+              return (
+                <motion.div
+                  key={idx}
+                  initial={false}
+                  animate={{
+                    ...targetVariant,
+                    scale: isShrinking ? 0.9 : targetVariant.scale,
+                  }}
+                  transition={{
+                    duration: 0.5,
+                    ease: [0.25, 1, 0.5, 1],
+                    scale: { duration: 0.2 },
+                  }}
+                  drag="x"
+                  dragConstraints={{ left: 0, right: 0 }}
+                  dragElastic={0.05}
+                  onDragEnd={(_, { offset }) => {
+                    const swipeThreshold = 50;
+                    if (offset.x < -swipeThreshold) {
+                      nextSlide();
+                    } else if (offset.x > swipeThreshold) {
+                      prevSlide();
+                    }
+                  }}
+                  // --- KEY CHANGES HERE ---
+                  // 1. Removed h-[400px] and md:h-[600px]
+                  // 2. Added aspect-[4/5] to force the 1080x1350 ratio
+                  // 3. Adjusted widths: md:w-[500px] (which results in 625px height, safer for laptops)
+                  //    md:w-[600px] would result in 750px height, which might overflow
+                  className={`absolute w-[70vw] md:w-[500px] aspect-[4/5] ${
+                    offset === 0
+                      ? "z-20"
+                      : "z-10 cursor-pointer hover:brightness-110"
+                  }`}
+                  onClick={() => {
+                    if (offset === -1) prevSlide();
+                    if (offset === 1) nextSlide();
+                  }}
+                >
+                  <div className="w-full h-full pointer-events-none md:pointer-events-auto">
+                    <ArtistCard
+                      artist={ARTISTS[artistIndex]}
+                      isMain={offset === 0}
+                    />
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </main>
+
+        <footer className="relative z-20 px-8 md:px-16 w-full pt-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-0">
+            <div className="flex gap-6">
+              <button
+                onClick={prevSlide}
+                className="w-16 h-16 bg-[#22D3EE] text-white flex items-center justify-center hover:brightness-110 transition-all font-bold shadow-[6px_6px_0px_white] active:shadow-none active:translate-x-[6px] active:translate-y-[6px]"
+              >
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                >
+                  <path d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button
+                onClick={nextSlide}
+                className="w-16 h-16 bg-[#F0ABFC] text-white flex items-center justify-center hover:brightness-110 transition-all font-bold shadow-[6px_6px_0px_white] active:shadow-none active:translate-x-[6px] active:translate-y-[6px]"
+              >
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                >
+                  <path d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+
+            <div className="flex-1 mx-16 h-[1px] bg-white/20 relative">
+              <motion.div
+                className="absolute top-0 bottom-0 left-0 bg-[#22D3EE] h-full shadow-[0_0_10px_rgba(34,211,238,0.5)]"
+                initial={false}
+                animate={{
+                  // Correctly maps 0, 1, 2 to 33.3%, 66.6%, 100%
+                  width: `${((getArtistIndex(positionIndex) + 1) / ARTISTS.length) * 100}%`,
+                }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              />
+            </div>
+          </div>
+        </footer>
+      </div>
+      <MovingTape />
+    </>
+  );
+};
+
+export default Proshows;

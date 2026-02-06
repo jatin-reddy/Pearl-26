@@ -30,7 +30,7 @@ const Events = () => {
         </motion.div>
       </div>
 
-      <CTASection bgColor="#271b46" />
+      <CTASection bgColor="#634AA7" />
     </motion.div>
   );
 };

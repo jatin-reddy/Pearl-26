@@ -14,7 +14,7 @@ const Preloader: React.FC<PreloaderProps> = ({ setLoading }) => {
       setTimeout(() => {
         setLoading(false);
         document.body.style.overflow = "";
-      }, 3000);
+      }, 2500);
     };
 
     if (document.readyState === "complete") {

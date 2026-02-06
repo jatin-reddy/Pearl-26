@@ -21,6 +21,11 @@ const ScrollToTop = () => {
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const location = useLocation();
+
+  useEffect(() => {
+    setIsLoading(true);
+  }, [location.pathname]);
 
   return (
     <ReactLenis root options={{ lerp: 0.08 }}>

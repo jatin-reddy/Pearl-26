@@ -6,7 +6,7 @@ const PearlLoader = () => {
     visible: {
       opacity: 1,
       transition: {
-        duration: 0.7,
+        duration: 0.5,
         ease: "easeOut",
       },
     },
@@ -21,8 +21,8 @@ const PearlLoader = () => {
       pathLength: 1,
       fillOpacity: 1,
       transition: {
-        pathLength: { delay: 0.8, duration: 2, ease: "easeInOut" },
-        fillOpacity: { delay: 2.5, duration: 0.5, ease: "easeOut" },
+        pathLength: { delay: 0.8, duration: 1, ease: "easeInOut" },
+        fillOpacity: { delay: 2, duration: 0.5, ease: "easeOut" },
       },
     },
   };

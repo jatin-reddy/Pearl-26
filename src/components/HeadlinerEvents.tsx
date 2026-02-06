@@ -142,7 +142,7 @@ const EventCard = ({
             md:absolute md:w-[600px] md:h-auto md:min-h-[340px] md:-bottom-20 md:-right-30`}
       >
         {/* Title */}
-        <h3 className="font-pearl uppercase leading-none mb-2 md:mb-4 text-xl md:text-4xl text-left tracking-wide">
+        <h3 className="font-rumba uppercase leading-none mb-2 md:mb-4 text-2xl md:text-5xl text-left tracking-wide">
           {event.title}
         </h3>
 

@@ -15,6 +15,7 @@ export type Event = {
   description?: string;
   image?: { src: string; alt: string };
   hoverImage?: { src: string; alt: string };
+  link?: string;
 };
 
 type EventListProps = {

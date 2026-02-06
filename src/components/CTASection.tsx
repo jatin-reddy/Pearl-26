@@ -11,7 +11,7 @@ const CTASection: React.FC<ComicCTAProps> = ({
 }) => {
   return (
     <section
-      className="w-full relative overflow-hidden flex items-center justify-center py-16 md:py-24 border-y-4 border-black"
+      className="w-full relative overflow-hidden flex items-center justify-center py-16 md:py-24 border-black"
       style={{ backgroundColor: bgColor }}
     >
       {/* Background Decorative Element for that Comic Feel */}

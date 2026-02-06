@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -62,6 +62,28 @@ const GallerySection: React.FC = () => {
     return Array(copies).fill(SOURCE_IMAGES).flat();
   }, []);
 
+  // --- CHANGE 1: PRELOADER LOGIC ---
+  // Whenever the index changes, we download the Next and Previous full-res images
+  // into the browser cache so they are ready before the user clicks.
+  useEffect(() => {
+    if (SOURCE_IMAGES.length === 0) return;
+
+    const len = SOURCE_IMAGES.length;
+    const nextIndex = (currentIndex + 1) % len;
+    const prevIndex = (currentIndex - 1 + len) % len;
+
+    const preloadList = [
+      SOURCE_IMAGES[nextIndex].full,
+      SOURCE_IMAGES[prevIndex].full,
+    ];
+
+    preloadList.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, [currentIndex]);
+  // ----------------------------------
+
   const getSmartDirection = (newIndex: number, oldIndex: number) => {
     const length = SOURCE_IMAGES.length;
     let dir = newIndex > oldIndex ? 1 : -1;
@@ -91,7 +113,7 @@ const GallerySection: React.FC = () => {
   };
 
   const activeColor = CARD_COLORS[currentIndex % CARD_COLORS.length];
-
+  const currentItem = SOURCE_IMAGES[currentIndex];
   const slideVariants: Variants = {
     enter: (dir: number) => ({ x: dir > 0 ? "100%" : "-100%", opacity: 1 }),
     center: { x: 0, opacity: 1 },
@@ -194,10 +216,16 @@ const GallerySection: React.FC = () => {
                   className="absolute inset-0 w-full h-full"
                 >
                   <img
-                    // USE THE FULL SIZE IMAGE HERE
-                    src={SOURCE_IMAGES[currentIndex]?.full}
-                    alt={SOURCE_IMAGES[currentIndex]?.alt || "Gallery Image"}
-                    className="w-full h-full object-cover"
+                    src={currentItem?.thumbnail}
+                    alt=""
+                    className="absolute inset-0 w-full h-full object-cover blur-sm scale-105"
+                    aria-hidden="true"
+                  />
+
+                  <img
+                    src={currentItem?.full}
+                    alt={currentItem?.alt}
+                    className="absolute inset-0 w-full h-full object-cover z-10"
                     decoding="async"
                   />
                 </motion.div>

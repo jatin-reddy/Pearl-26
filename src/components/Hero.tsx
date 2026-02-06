@@ -65,7 +65,7 @@ export default function Hero() {
           >
             <div className="absolute top-12 left-6 md:top-12 md:left-12">
               <a
-                href="/unifest"
+                href="https://www.unifest.in/fests/60?fest=pearl-2026"
                 className="inline-block px-4 py-2 text-sm md:px-6 md:py-4 md:text-xl bg-[#E56399] text-white font-bold uppercase tracking-widest border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-150 hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
               >
                 Register Now

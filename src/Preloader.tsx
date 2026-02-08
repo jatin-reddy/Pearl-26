@@ -55,7 +55,7 @@ const Preloader: React.FC<PreloaderProps> = ({ setLoading }) => {
   }
 
   const isMobile = dimensions.width < 768;
-  const blockSize = isMobile ? dimensions.width / 15 : dimensions.width / 30;
+  const blockSize = isMobile ? dimensions.width / 30 : dimensions.width / 75;
 
   const columns = Math.ceil(dimensions.width / blockSize) || 1;
   const rows = Math.ceil(dimensions.height / blockSize) || 1;

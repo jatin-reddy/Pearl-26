@@ -26,7 +26,7 @@ const CTASection: React.FC<ComicCTAProps> = ({
       <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between relative z-10">
         <div className="w-full md:w-3/5 mb-10 md:mb-0 text-center md:text-left">
           <h2
-            className="text-4xl sm:text-5xl md:text-7xl text-white italic uppercase tracking-wider font-body"
+            className="text-4xl sm:text-5xl md:text-7xl text-white  uppercase tracking-wider font-pearl leading-15 md:leading-26"
             style={{
               // Using a more robust text-shadow stack for the outline
               textShadow: `
@@ -38,8 +38,8 @@ const CTASection: React.FC<ComicCTAProps> = ({
               `,
             }}
           >
-            Escape Into <br className="hidden sm:block" />
-            The <span className="text-yellow-400">Comic-Verse</span> Now
+            Escape Into The <br className="hidden sm:block" />
+            <span className="text-yellow-400">Comic-Verse</span> Now!
           </h2>
         </div>
 

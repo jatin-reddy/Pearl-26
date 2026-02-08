@@ -5,7 +5,7 @@ import {
   HiOutlineLocationMarker,
 } from "react-icons/hi";
 
-import pearlLogo from "/PearlLogoFinal.svg";
+import pearlLogo from "/PearlLogowDate1.svg";
 import madeByDotaLogo from "../assets/made by DoTA.svg";
 
 const Footer = () => {
@@ -114,7 +114,7 @@ const Footer = () => {
         <img
           src={madeByDotaLogo}
           alt="Dept of Technical Arts"
-          className="hidden md:block absolute bottom-0 right-0 w-24 md:w-32 z-50 pointer-events-none"
+          className="hidden md:block absolute bottom-0 right-0 w-24 md:w-32 z-40 pointer-events-none"
         />
       </div>
     </footer>

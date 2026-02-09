@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 
-import background from "../assets/herosection/background2.jpeg";
+import background from "../assets/herosection/background2.webp";
 import rooftop from "../assets/herosection/heros-silouette.png";
 import logo from "/PearlLogowDate1.svg";
 import MovingTape from "./Tape";

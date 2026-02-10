@@ -65,7 +65,7 @@ const Footer = () => {
               <div className="flex flex-col gap-2 text-lg md:text-xl text-gray-300 ">
                 <div className="flex items-center gap-2">
                   <HiOutlinePhone className="w-4 h-4 text-gray-400 " />
-                  <span>+91 99490 20295</span>
+                  <span>+91 94930 54925</span>
                 </div>
                 <div className="flex items-center gap-2 font-body">
                   <HiOutlineMail className="w-4 h-4 text-gray-400" />

@@ -20,19 +20,19 @@ export default function Sponsors() {
       <div className="mt-20 flex flex-col items-center gap-20">
         {/* TITLE SPONSOR 1 */}
         <div className="flex flex-col items-center gap-6">
-          <p className="text-white tracking-widest text-sm">TITLE SPONSOR</p>
+          <p className="text-white tracking-widest text-sm">COMING SOON</p>
           <div className="w-[320px] h-[180px] bg-[#E5E5E5]" />
         </div>
 
         {/* TITLE SPONSOR 2 */}
         <div className="flex flex-col items-center gap-6">
-          <p className="text-white tracking-widest text-sm">TITLE SPONSOR</p>
+          <p className="text-white tracking-widest text-sm">COMING SOON</p>
           <div className="w-[320px] h-[180px] bg-[#E5E5E5]" />
         </div>
 
         {/* AUTO-MOVING TITLE SPONSOR ROW */}
         <div className="flex flex-col items-center gap-6">
-          <p className="text-white tracking-widest text-sm">TITLE SPONSOR</p>
+          <p className="text-white tracking-widest text-sm">COMING SOON</p>
 
           <motion.div
             className="flex gap-8"

@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import PearlLoader from "./PearlLoader";
+import { useLenis } from "lenis/react";
 
 interface PreloaderProps {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Preloader: React.FC<PreloaderProps> = ({ setLoading }) => {
+  const lenis = useLenis();
   const [dimensions, setDimensions] = useState({
     width: typeof window !== "undefined" ? window.innerWidth : 0,
     height: typeof window !== "undefined" ? window.innerHeight : 0,
   });
 
   useEffect(() => {
+    if (lenis) lenis.stop();
     const updateDimensions = () => {
       setDimensions({
         width: window.innerWidth,
@@ -29,6 +32,7 @@ const Preloader: React.FC<PreloaderProps> = ({ setLoading }) => {
       setTimeout(() => {
         setLoading(false);
         document.body.style.overflow = "";
+        if (lenis) lenis.start();
       }, 2500);
     };
 
@@ -42,8 +46,9 @@ const Preloader: React.FC<PreloaderProps> = ({ setLoading }) => {
       window.removeEventListener("load", handleLoad);
       window.removeEventListener("resize", updateDimensions);
       document.body.style.overflow = "";
+      if (lenis) lenis.start();
     };
-  }, [setLoading]);
+  }, [setLoading, lenis]);
 
   // SAFEGUARD
   if (dimensions.width === 0 || dimensions.height === 0) {

@@ -30,11 +30,11 @@ const App = () => {
   return (
     <ReactLenis root options={{ lerp: 0.08 }}>
       <ScrollToTop />
-      <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait">
         {isLoading && <Preloader setLoading={setIsLoading} />}
       </AnimatePresence>
       <div>
-        <NavMenu />
+        {!isLoading && <NavMenu />}
         <main>
           <Outlet />
         </main>

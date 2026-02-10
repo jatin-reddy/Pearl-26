@@ -49,8 +49,8 @@ function Header() {
         />
       </div>
 
-      <div className="headlinerEventsContainer flex flex-col gap-10 max-md:gap-5 mb-20 px-24">
-        <h2 className="text-4xl text-white font-body font-light py-12 flex justify-center items-center max-md:text-lg">
+      <div className="headlinerEventsContainer flex flex-col gap-10 max-md:gap-5 mb-20 px-6 md:px-24">
+        <h2 className="text-4xl text-white font-body font-light py-4 md:py-12 flex justify-center items-center max-md:text-lg">
           HEADLINER EVENTS
         </h2>
 
@@ -111,7 +111,7 @@ function Header() {
               </div>
             </div>
 
-            <div className="eventDetails flex flex-col gap-6 w-[400px] max-md:px-10 max-md:items-center">
+            <div className="eventDetails flex flex-col gap-6 w-full md:w-[400px] max-md:px-10 max-md:items-center">
               <h3 className="relative text-3xl max-md:text-lg font-bold font-rumba font-stretch-semi-expanded">
                 <span className="absolute left-0 top-0 translate-y-[6px] text-black tracking-wider select-none pointer-events-none">
                   {activeEvent.title}

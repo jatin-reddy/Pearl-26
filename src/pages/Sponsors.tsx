@@ -29,14 +29,10 @@ interface SponsorCategory {
 
 const sponsorData: SponsorCategory[] = [
   {
-    category: "TITLE SPONSOR",
+    category: "TITLE SPONSORS",
     size: "large",
     sponsors: [
-      {
-        name: "UNILEVER",
-        tag: "Title Sponsor - Music Events",
-        id: "unilever",
-      },
+      { name: "Coke", tag: "Co-Title Sponsor", id: "coke" },
     ],
   },
   {
@@ -59,6 +55,11 @@ const sponsorData: SponsorCategory[] = [
     category: "PARTNERS",
     size: "small",
     sponsors: [
+      {
+        name: "UNILEVER",
+        tag: "Title Sponsor - Music Events",
+        id: "unilever",
+      },
       { name: "Coke", tag: "Beverage Partner", id: "coke" },
       { name: "Farmley", tag: "Healthy Snacking Partner", id: "farmley" },
       { name: "Britannia", tag: "Snacking Partner", id: "britannia" },
@@ -93,19 +94,19 @@ export default function Sponsors() {
         text2="SPONSORS"
         ghostText="SPONSORS"
         text1Color="text-white"
-        text2Color="text-[#F3D300]"
+        text2Color="text-white"
       />
 
       {/* CONTENT */}
       <div className="mt-20 flex flex-col items-center gap-16 max-w-7xl mx-auto">
         {sponsorData.map((group, index) => (
           <div key={index} className="flex flex-col items-center gap-10 w-full">
-            <h3 className="text-white tracking-[0.2em] text-2xl font-rumba uppercase opacity-90">
+            <h3 className="text-white tracking-[0.2em] text-2xl font-rumba uppercase opacity-90 text-center">
               {group.category}
             </h3>
 
             <div
-              className={`flex flex-wrap justify-center gap-8 ${
+              className={`flex flex-wrap justify-center gap-10 ${
                 group.size === "large" ? "w-full" : ""
               }`}
             >
@@ -125,8 +126,8 @@ export default function Sponsors() {
                         group.size === "large"
                           ? "w-[min(90vw,550px)] h-[min(50vw,310px)]"
                           : group.size === "medium"
-                          ? "w-[min(45vw,380px)] h-[min(25vw,215px)]"
-                          : "w-[min(42vw,280px)] h-[min(24vw,160px)]"
+                          ? "w-[min(45vw,400px)] h-[min(25vw,225px)]"
+                          : "w-[min(42vw,300px)] h-[min(24vw,170px)]"
                       }`}
                     >
                       {logoUrl ? (

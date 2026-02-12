@@ -94,7 +94,7 @@ export default function Sponsors() {
         text2="SPONSORS"
         ghostText="SPONSORS"
         text1Color="text-white"
-        text2Color="text-white"
+        text2Color="text-[#F3D300]"
       />
 
       {/* CONTENT */}

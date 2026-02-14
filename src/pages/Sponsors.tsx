@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import SectionHeading from "../components/SectionHeading";
+import MovingTape from "../components/Tape";
 
 // Dynamically import all webp files from the sponsors directory
 // This prevents crashes if a file is missing - it just won't be in the logos map.
@@ -31,15 +32,18 @@ const sponsorData: SponsorCategory[] = [
   {
     category: "TITLE SPONSORS",
     size: "large",
-    sponsors: [
-      { name: "Coke", tag: "Co-Title Sponsor", id: "coke" },
-    ],
+    sponsors: [{ name: "Coke", tag: "Co-Title Sponsor", id: "coke" }],
   },
   {
     category: "PRO-NITE PARTNERS",
     size: "medium",
     sponsors: [
-      { name: "Realme", tag: "Pro-Nite Partner", id: "realme" },
+      {
+        name: "Realme P4 Power 5G",
+        tag: "Pro-Nite Partner",
+        id: "realme",
+        invert: true,
+      },
       { name: "Phillips", tag: "Pro-Nite Partner", id: "phillips" },
     ],
   },
@@ -63,13 +67,19 @@ const sponsorData: SponsorCategory[] = [
       { name: "Coke", tag: "Beverage Partner", id: "coke" },
       { name: "Farmley", tag: "Healthy Snacking Partner", id: "farmley" },
       { name: "Britannia", tag: "Snacking Partner", id: "britannia" },
-      { name: "Metanova Esports", tag: "Gaming Partner", id: "metanova", invert: true },
+      {
+        name: "Metanova Esports",
+        tag: "Gaming Partner",
+        id: "metanova",
+        invert: true,
+      },
       { name: "Monster Energy", tag: "Energy Partner", id: "monster" },
       { name: "MYOP", tag: "Gifting Partner", id: "myop" },
+      { name: "Reliance Trends", tag: "Fashion Partner", id: "trends" },
       { name: "Peppero", tag: "Bites Partner", id: "peppero" },
       { name: "Fleamora", tag: "Flea Market Partner", id: "fleamora" },
       { name: "Musee Musicals", tag: "Music Partner", id: "musee" },
-      { name: "Pixelvide", id: "pixelvide" },
+      { name: "Pixelvide", tag: "Technology Partner", id: "pixelvide" },
       {
         name: "RUSkilled",
         tag: "Technical Workshop Partner",
@@ -84,76 +94,82 @@ const sponsorData: SponsorCategory[] = [
 
 export default function Sponsors() {
   return (
-    <section
-      id="sponsors"
-      className="min-h-screen bg-[#F25C9A] py-24 overflow-hidden px-4"
-    >
-      {/* STATIC HEADING */}
-      <SectionHeading
-        text1="OUR"
-        text2="SPONSORS"
-        ghostText="SPONSORS"
-        text1Color="text-white"
-        text2Color="text-[#F3D300]"
-      />
-
-      {/* CONTENT */}
-      <div className="mt-20 flex flex-col items-center gap-16 max-w-7xl mx-auto">
-        {sponsorData.map((group, index) => (
-          <div key={index} className="flex flex-col items-center gap-10 w-full">
-            <h3 className="text-white tracking-[0.2em] text-2xl font-rumba uppercase opacity-90 text-center">
-              {group.category}
-            </h3>
-
+    <section id="sponsors" className="min-h-screen bg-[#F25C9A]">
+      <div className="mb-10">
+        <MovingTape />
+        <div className="pt-24 px-4">
+          {/* STATIC HEADING */}
+          <SectionHeading
+            text1="OUR"
+            text2="SPONSORS"
+            ghostText="SPONSORS"
+            text1Color="text-white"
+            text2Color="text-[#F3D300]"
+          />
+        </div>
+        {/* CONTENT */}
+        <div className="mt-20 flex flex-col items-center gap-16 max-w-7xl mx-auto">
+          {sponsorData.map((group, index) => (
             <div
-              className={`flex flex-wrap justify-center gap-10 ${
-                group.size === "large" ? "w-full" : ""
-              }`}
+              key={index}
+              className="flex flex-col items-center gap-10 w-full"
             >
-              {group.sponsors.map((sponsor, idx) => {
-                const logoUrl = getLogo(sponsor.id);
-                return (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: idx * 0.1 }}
-                    className="flex flex-col items-center gap-4"
-                  >
-                    <div
-                      className={`bg-white shadow-lg overflow-hidden flex items-center justify-center relative group transition-transform duration-300 hover:scale-105 ${
-                        group.size === "large"
-                          ? "w-[min(90vw,550px)] h-[min(50vw,310px)]"
-                          : group.size === "medium"
-                          ? "w-[min(45vw,400px)] h-[min(25vw,225px)]"
-                          : "w-[min(42vw,300px)] h-[min(24vw,170px)]"
-                      }`}
+              <h3 className="text-white tracking-[0.2em] text-2xl font-rumba uppercase opacity-90 text-center">
+                {group.category}
+              </h3>
+
+              <div
+                className={`flex flex-wrap justify-center gap-10 ${
+                  group.size === "large" ? "w-full" : ""
+                }`}
+              >
+                {group.sponsors.map((sponsor, idx) => {
+                  const logoUrl = getLogo(sponsor.id);
+                  return (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: idx * 0.1 }}
+                      className="flex flex-col items-center gap-4"
                     >
-                      {logoUrl ? (
-                        <img
-                          src={logoUrl}
-                          alt={sponsor.name}
-                          className="w-full h-full object-contain p-4"
-                          style={sponsor.invert ? { filter: "invert(1)" } : {}}
-                        />
-                      ) : (
-                        <div className="text-[#F25C9A] font-body font-bold text-center px-4">
-                          {sponsor.name.toUpperCase()}
-                        </div>
+                      <div
+                        className={`bg-white shadow-lg overflow-hidden flex items-center justify-center relative group transition-transform duration-300 hover:scale-105 ${
+                          group.size === "large"
+                            ? "w-[min(90vw,550px)] h-[min(50vw,310px)]"
+                            : group.size === "medium"
+                              ? "w-[min(45vw,400px)] h-[min(25vw,225px)]"
+                              : "w-[min(42vw,300px)] h-[min(24vw,170px)]"
+                        }`}
+                      >
+                        {logoUrl ? (
+                          <img
+                            src={logoUrl}
+                            alt={sponsor.name}
+                            className="w-full h-full object-contain p-4"
+                            style={
+                              sponsor.invert ? { filter: "invert(1)" } : {}
+                            }
+                          />
+                        ) : (
+                          <div className="text-[#F25C9A] font-body font-bold text-center px-4">
+                            {sponsor.name.toUpperCase()}
+                          </div>
+                        )}
+                      </div>
+                      {sponsor.tag && (
+                        <span className="text-white/80 font-body text-lg tracking-wider text-center max-w-[200px]">
+                          {sponsor.tag}
+                        </span>
                       )}
-                    </div>
-                    {sponsor.tag && (
-                      <span className="text-white/80 font-body text-lg tracking-wider text-center max-w-[200px]">
-                        {sponsor.tag}
-                      </span>
-                    )}
-                  </motion.div>
-                );
-              })}
+                    </motion.div>
+                  );
+                })}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

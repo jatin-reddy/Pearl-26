@@ -7,6 +7,8 @@ import Schedule from "./pages/Schedule";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import Sponsors from "./pages/Sponsors";
+import Team from "./pages/Team";
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -18,6 +20,7 @@ export const router = createBrowserRouter([
       { path: "gallery", element: <Gallery /> },
       { path: "contact", element: <Contact /> },
       { path: "sponsors", element: <Sponsors /> },
+      { path: "team", element: <Team /> },
     ],
   },
 ]);

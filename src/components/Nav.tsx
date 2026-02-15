@@ -21,6 +21,7 @@ const navLinks: NavLink[] = [
   { id: "03", title: "SPONSORS", href: "/sponsors" },
   { id: "04", title: "GALLERY", href: "/gallery" },
   { id: "05", title: "SCHEDULE", href: "/schedule" },
+  { id: "06", title: "TEAM", href: "/team" },
 ];
 
 const socialLinks = [

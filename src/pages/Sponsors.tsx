@@ -94,8 +94,8 @@ const sponsorData: SponsorCategory[] = [
 
 export default function Sponsors() {
   return (
-    <section id="sponsors" className="min-h-screen bg-[#F25C9A]">
-      <div className="mb-10">
+    <section id="sponsors" className="min-h-screen bg-[#F25C9A] pb-20">
+      <div>
         <MovingTape />
         <div className="pt-24 px-4">
           {/* STATIC HEADING */}

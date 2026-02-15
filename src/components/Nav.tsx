@@ -209,7 +209,7 @@ const NavMenu = () => {
                   initial="initial"
                   animate="open"
                   exit="initial"
-                  className="flex flex-col gap-4 md:gap-6 lg:gap-8 py-8"
+                  className="flex flex-col gap-3 md:gap-5 lg:gap-7 py-8"
                 >
                   {navLinks.map((link) => (
                     <div
@@ -222,14 +222,14 @@ const NavMenu = () => {
                           onClick={toggleMenu}
                           className="group flex items-baseline gap-4 md:gap-8 text-white hover:text-black transition-colors duration-300"
                         >
-                          <span className="text-lg md:text-xl font-grotesk font-bold opacity-50 group-hover:opacity-100 transition-opacity">
+                          <span className="text-base md:text-lg font-grotesk font-bold opacity-50 group-hover:opacity-100 transition-opacity">
                             {link.id}
                           </span>
                           <span
                             // CHANGED:
                             // 1. Reduced sizes: 5xl->4xl, 8xl->7xl etc.
                             // 2. Changed leading to 0.9 to give more vertical space
-                            className="font-pearl text-4xl sm:text-5xl md:text-6xl lg:text-7xl uppercase tracking-wide leading-[0.9]"
+                            className="font-pearl text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase tracking-wide leading-[0.85]"
                             style={{
                               textShadow: "3px 3px 0px rgba(0,0,0,0.5)",
                             }}

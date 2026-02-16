@@ -43,7 +43,11 @@ const teamData: Record<TeamCategory, TeamSubgroup[]> = {
       members: [{ name: "Satyaraj Shivareddypeta", role: "General Secretary", image: "satya_raj" }],
     },
     {
-      title: "Election Commission",
+      title: "Fest Convener",
+      members: [{ name: "Varun Karthik", role: "Pearl'26 Convener", image: "Varun_Karthik" }],
+    },
+    {
+      title: "Election Commission (EC)",
       members: [
         { name: "Manav Ajith", role: "Executive Member" },
         { name: "Haneesh Kankipati", role: "Executive Member" },

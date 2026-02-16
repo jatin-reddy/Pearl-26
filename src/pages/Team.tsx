@@ -40,7 +40,7 @@ const teamData: Record<TeamCategory, TeamSubgroup[]> = {
   Council: [
     {
       title: "President, Student Union Council",
-      members: [{ name: "Satyaraj Shivareddypeta", role: "President", image: "satya_raj" }],
+      members: [{ name: "Satyaraj Shivareddypeta", role: "General Secretary", image: "satya_raj" }],
     },
     {
       title: "Election Commission",
@@ -76,8 +76,8 @@ const teamData: Record<TeamCategory, TeamSubgroup[]> = {
     {
       title: "Students' Council of Cultural Activities (StuCCA)",
       members: [
-        { name: "Harini Yadavilli", role: "Arts and Deco (AnD)" },
         { name: "Sahil Salvee", role: "Department of Technical Arts" },
+        { name: "Harini Yadavilli", role: "Arts and Deco (AnD)" },
         { name: "Sri Niketh Mulagada", role: "Department of Controlz" },
         { name: "Shahil Singh", role: "Department of Photography" },
         { name: "Garv Chachan", role: "Department of Security and Hospitality" },
@@ -86,7 +86,6 @@ const teamData: Record<TeamCategory, TeamSubgroup[]> = {
         { name: "Saif", role: "Department of Visual Effects" },
         { name: "Marmik Sapovadia", role: "Lights and Sounds Department" },
         { name: "Malav Patel", role: "Department of Recreational Activities" },
-        { name: "Yash Raj", role: "CoStAAN - Department of Security and Hospitality" },
       ],
     },
   ],
@@ -181,8 +180,8 @@ const TeamMemberCard = ({ member, priority = false }: { member: TeamMember, prio
           )}
         </div>
         <div className="text-center font-rumba">
-          <h4 className="font-bold text-xl uppercase tracking-tighter text-black leading-tight mb-1">{member.name}</h4>
-          <p className="text-xs text-gray-700 font-bold uppercase tracking-widest leading-tight">{member.role}</p>
+          <h4 className="font-bold text-xl uppercase tracking-widest text-black leading-wider mb-1">{member.name}</h4>
+          <p className="text-xs text-gray-700 font-bold uppercase tracking-widest leading-wider">{member.role}</p>
         </div>
       </div>
     </motion.div>

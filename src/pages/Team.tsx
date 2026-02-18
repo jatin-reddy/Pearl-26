@@ -40,7 +40,7 @@ const teamData: Record<TeamCategory, TeamSubgroup[]> = {
   Council: [
     {
       title: "Student Union Council",
-      members: [{ name: "Satyaraj Shivareddypeta", role: "Acting President", image: "satya_raj" }],
+      members: [{ name: "Satyaraj Shivareddypeta", role: "General Secretary", image: "satya_raj" }],
     },
     {
       title: "Fest Convener",

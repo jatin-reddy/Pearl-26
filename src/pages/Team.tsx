@@ -39,7 +39,7 @@ const getMemberImage = (name: string): string | undefined => {
 const teamData: Record<TeamCategory, TeamSubgroup[]> = {
   Council: [
     {
-      title: "President, Student Union Council",
+      title: "Student Union Council",
       members: [{ name: "Satyaraj Shivareddypeta", role: "General Secretary", image: "satya_raj" }],
     },
     {

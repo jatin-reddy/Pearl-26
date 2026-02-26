@@ -32,7 +32,11 @@ const sponsorData: SponsorCategory[] = [
   {
     category: "TITLE SPONSORS",
     size: "large",
-    sponsors: [{ name: "Coke", tag: "Co-Title Sponsor", id: "coke" }],
+    sponsors: [
+      { name: "SBI", tag: "Title Sponsor", id: "sbi" },
+      { name: "Coke", tag: "Co-Title Sponsor", id: "coke" },
+      { name: "Cantabil", tag: "Co-Title Sponsor", id: "cantabil" },
+    ],
   },
   {
     category: "PRO-NITE PARTNERS",
@@ -44,14 +48,12 @@ const sponsorData: SponsorCategory[] = [
         id: "realme",
         invert: true,
       },
-      { name: "Phillips", tag: "Pro-Nite Partner", id: "phillips" },
     ],
   },
   {
     category: "BANKING PARTNERS",
     size: "medium",
     sponsors: [
-      { name: "SBI", tag: "Banking Partner", id: "sbi" },
       { name: "ICICI Bank", tag: "Banking Partner", id: "icici" },
     ],
   },
@@ -60,9 +62,9 @@ const sponsorData: SponsorCategory[] = [
     size: "small",
     sponsors: [
       {
-        name: "UNILEVER",
-        tag: "Title Sponsor - Music Events",
-        id: "unilever",
+        name: "Love Beauty and Planet",
+        tag: "Hair Partner",
+        id: "lovebeautyplanet",
       },
       { name: "Coke", tag: "Beverage Partner", id: "coke" },
       { name: "Farmley", tag: "Healthy Snacking Partner", id: "farmley" },
@@ -75,7 +77,6 @@ const sponsorData: SponsorCategory[] = [
       },
       { name: "Monster Energy", tag: "Energy Partner", id: "monster" },
       { name: "MYOP", tag: "Gifting Partner", id: "myop" },
-      { name: "Reliance Trends", tag: "Fashion Partner", id: "trends" },
       { name: "Peppero", tag: "Bites Partner", id: "peppero" },
       { name: "Fleamora", tag: "Flea Market Partner", id: "fleamora" },
       { name: "Musee Musicals", tag: "Music Partner", id: "musee" },
@@ -88,6 +89,9 @@ const sponsorData: SponsorCategory[] = [
       { name: "Refuel Merchant", tag: "Food Stall Partner", id: "refuel" },
       { name: "Pixie Booth", tag: "Stall Partner", id: "pixie" },
       { name: "Studio Novera", tag: "Stall Partner", id: "studio" },
+      { name: "Fablabs", tag: "Performance Partner", id: "fablabs" },
+      { name: "South Indian Times", tag: "Media Partner", id: "southindiatimes" },
+      { name: "The Legacy Closet", tag: "Anime Partner", id: "legacycloset" },
     ],
   },
 ];

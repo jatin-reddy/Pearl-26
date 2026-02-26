@@ -73,6 +73,7 @@ const teamData: Record<TeamCategory, TeamSubgroup[]> = {
       members: [
         { name: "Sanjay S", role: "Operations and Coordination Head" },
         { name: "Abhijeeth Kurapati", role: "OC head" },
+        { name: "Akshat Kumar", role: "VMC SUC Rep" },
       ],
     },
   ],
